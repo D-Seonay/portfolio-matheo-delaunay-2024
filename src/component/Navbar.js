@@ -17,7 +17,7 @@ function Navbar() {
 						<p>/About-me</p>
 				</Link>
 				{/*Icon mail*/}
-				<Link href="mailto:matheodelaunay04@gmail.com">
+				<Link href="mailto:matheodelaunay04@gmail.com" aria-label="Mail">
 					<Icons theme={theme}><IoMdMail /></Icons>
 				</Link>
 				<ThemeToggleButton theme={theme} />

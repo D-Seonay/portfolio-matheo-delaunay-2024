@@ -7,9 +7,10 @@ const ThemeToggleButton = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<ToggleButton onClick={toggleTheme}>
+		<ToggleButton onClick={toggleTheme} aria-label="Toggle Theme">
 			{theme === 'light' ? <Icons><FiMoon /></Icons> : <Icons><FiSun /></Icons>}
 		</ToggleButton>
+
 	);
 };
 

@@ -11,7 +11,6 @@ const ProjectSlider = ({ projects }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const sliderRef = useRef(null);
 
-
 	const handleScroll = event => {
 		if (event && event.deltaY !== undefined) {
 			const slider = sliderRef.current;
@@ -23,17 +22,21 @@ const ProjectSlider = ({ projects }) => {
 		}
 	};
 
-
 	const settings = {
+		infinite: false,
+
 		speed: 500,
 		slidesToShow: 1,
 		slidesToScroll: 1,
+		initialSlide: 0,
+		arrows: false,
 		responsive: [
 			{
 				breakpoint: 1024,
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
+					initialSlide: 1,
 				}
 			},
 			{
@@ -41,7 +44,7 @@ const ProjectSlider = ({ projects }) => {
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
-					initialSlide: 1
+					initialSlide: 1,
 				}
 			}
 		],
@@ -63,10 +66,9 @@ const ProjectSlider = ({ projects }) => {
 			<ProjectSliderStyle>
 				<Slider {...settings} ref={sliderRef} afterChange={handleAfterChange}>
 					{projects.map(project => (
-						<WorksCards key={project.id} title={project.title} img={project.img} link={project.link} style={{ padding: '1rem', margin: '2rem' }} />
+						<WorksCards key={project.id} title={project.title} img={project.img} link={project.link} />
 					))}
 				</Slider>
-				{/* Ajustez les styles de la barre de progression */}
 				<ProgressBar theme={theme}>
 					<ProgressBarFill theme={theme} style={{ width: `${((currentSlide + 1) / projects.length) * 100}%` }} />
 				</ProgressBar>
