@@ -7,30 +7,12 @@ import GlassBackground from './component/ui/GlassBackground';
 import Works from './component/Works';
 
 
-function Home() {
-	const { theme } = useTheme();
-	return (
-		<>
-			<Section>
-				<Title theme={theme}>Accueil</Title>
-				<div>Je suis le contenu de la page d'accueil</div>
-				<Card>
-					<Title theme={theme}>Card</Title>
-					<div>Je suis une card</div>
-				</Card>
-				{/* Intégrez ici le contenu de votre page d'accueil */}
-			</Section>
-		</>
-	);
-}
-
 function App() {
 	return (
 		<>
 			<ThemeProvider>
 				<GlassBackground>
 						<Navbar />
-						<Home />
 						<Works />
 				</GlassBackground>
 			</ThemeProvider>
