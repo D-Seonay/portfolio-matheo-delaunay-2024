@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Gallery';
+  src: url('./fonts/gallerymodern-webfont.ttf') format('truetype');
+}
+
+* {
+  font-family: poppins, gallery, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #D9D9D9;
+    --bg-linear-gradient: linear-gradient(135deg, #ffffff, #f0f0f0);
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --body-bg: #f8f9fa;
+  --body-color: #212529;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --link-hover-decoration: underline;
+  --font-family-sans-serif: poppins, gallery, sans-serif;
+
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+  --border-width: 1px;
+  --border-color: #dee2e6;
+  --border-radius: 0.25rem;
+  --transition-base: all 0.2s ease-in-out;
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.light {
+    --body-bg: #ffffff;
+    --body-color: #212529;
+    --primary-color: #004085;
+    --secondary-color: #b8da00;
+    --bg-linear-gradient: linear-gradient(135deg, #000000, #000);
+    --success-color: #155724;
+    --info-color: #0c5460;
+    --warning-color: #856404;
+    --danger-color: #721c24;
+    --light-color: #818182;
+    --dark-color: #1b1e21;
+    --white-color: #ffffff;
+    --black-color: #000000;
+
+}
+h1 {
+  font-family: Gallery, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
