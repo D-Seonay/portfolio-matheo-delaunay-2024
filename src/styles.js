@@ -152,11 +152,11 @@ export const ToggleButton = styled.button`
 
 export const ProgressBar = styled.div`
   position: fixed;
+  left: 5%;
   bottom: 5px;
-	width: 100%;
+	width: 90%;
   height: 10px;
   background-color: ${props => props.theme === 'light' ? '#DADADA' : '#191919'};
-  margin-top: 10px;
   border-radius: 5px;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 
@@ -170,16 +170,26 @@ export const ProgressBarFill = styled.div`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, width 0.5s ease-in-out;
 `;
 
+export const ProjectSliderStyle = styled.div`
+  padding: 1rem;
+  margin: 2rem;
+`;
+
 export const CardContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  width: 90%;
-  height: 50vh; /* Hauteur fixe pour toutes les cartes */
-  margin: 2rem;
+  align-items: center;
+  width: 100%;
+  height: 60vh; /* Hauteur fixe pour toutes les cartes */
   overflow: hidden;
   border-radius: 10px;
+  perspective: 1000px; /* Profondeur de la perspective */
+
+  /* Ajoutez de l'espace entre les cartes */
+  margin-right: 1rem;
 `;
+
 
 export const ProjectImage = styled.img`
   width: 100%;
@@ -196,7 +206,6 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  max-width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -219,8 +228,3 @@ export const OpenProjectLink = styled.a`
   font-weight: bold;
   margin-top: 10px;
 `;
-
-
-
-
-

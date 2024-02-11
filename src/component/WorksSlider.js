@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { ProgressBar, ProgressBarFill } from "../styles";
+import { ProgressBar, ProgressBarFill, ProjectSliderStyle } from "../styles";
 import ScrollWheelHandler from 'react-scroll-wheel-handler';
 import { useTheme } from "./ThemeContext";
 import WorksCards from "./ui/WorksCards";
@@ -25,7 +25,6 @@ const ProjectSlider = ({ projects }) => {
 
 
 	const settings = {
-		infinite: true,
 		speed: 500,
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -33,9 +32,8 @@ const ProjectSlider = ({ projects }) => {
 			{
 				breakpoint: 1024,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					slidesToScroll: 1,
-					infinite: true,
 				}
 			},
 			{
@@ -47,6 +45,7 @@ const ProjectSlider = ({ projects }) => {
 				}
 			}
 		],
+		dots: false, // Désactiver les boutons de navigation
 	};
 
 	const handleAfterChange = current => {
@@ -61,18 +60,17 @@ const ProjectSlider = ({ projects }) => {
 			downHandler={handleScroll}
 			style={{ overflowY: 'scroll', height: '100%' }}
 		>
-			<div>
+			<ProjectSliderStyle>
 				<Slider {...settings} ref={sliderRef} afterChange={handleAfterChange}>
 					{projects.map(project => (
-						<WorksCards key={project.id} title={project.title} img={project.img} link={project.link} />
-
+						<WorksCards key={project.id} title={project.title} img={project.img} link={project.link} style={{ padding: '1rem', margin: '2rem' }} />
 					))}
 				</Slider>
 				{/* Ajustez les styles de la barre de progression */}
 				<ProgressBar theme={theme}>
 					<ProgressBarFill theme={theme} style={{ width: `${((currentSlide + 1) / projects.length) * 100}%` }} />
 				</ProgressBar>
-			</div>
+			</ProjectSliderStyle>
 		</ScrollWheelHandler>
 	);
 };

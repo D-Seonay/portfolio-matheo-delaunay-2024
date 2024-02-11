@@ -1,7 +1,7 @@
 import React from 'react';
 import { Overlay ,CardContainer, ProjectTitle, ProjectImage, OpenProjectLink } from '../../styles';
 
-const ProjectCard = ({ title, img, link }) => {
+const WorksCards = ({ title, img, link }) => {
 	return (
 		<CardContainer>
 			<ProjectImage src={img} alt={title} />
@@ -15,4 +15,4 @@ const ProjectCard = ({ title, img, link }) => {
 	);
 };
 
-export default ProjectCard;
+export default WorksCards;

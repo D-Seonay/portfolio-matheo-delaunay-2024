@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectSlider from './WorksSlider';
+import WorksSlider from './WorksSlider';
 
 const projects = [
 	{ id: 1, title: 'Projet 1', img: '/img/1.jpg', link: '#' },
@@ -13,7 +13,7 @@ const projects = [
 
 const Works = () => {
 	return (
-			<ProjectSlider projects={projects} />
+			<WorksSlider projects={projects} style={{ padding: '1rem', margin: '2rem' }} />
 	);
 };
 
