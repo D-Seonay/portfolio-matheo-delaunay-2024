@@ -4,6 +4,7 @@ import { Title, Card, Section } from './styles';
 import {ThemeProvider, useTheme} from './component/ThemeContext';
 import './index.css';
 import GlassBackground from './component/ui/GlassBackground';
+import Works from './component/Works';
 
 
 function Home() {
@@ -30,6 +31,7 @@ function App() {
 				<GlassBackground>
 						<Navbar />
 						<Home />
+						<Works />
 				</GlassBackground>
 			</ThemeProvider>
 

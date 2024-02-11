@@ -150,3 +150,70 @@ export const ToggleButton = styled.button`
   
 `;
 
+export const ProgressBar = styled.div`
+  position: fixed;
+  bottom: 5px;
+width: 100%;
+  height: 10px;
+  background-color: ${props => props.theme === 'light' ? '#DADADA' : '#191919'};
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+
+`;
+
+export const ProgressBarFill = styled.div`
+  height: 100%;
+  background-color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
+  border-radius: 5px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, width 0.5s ease-in-out;
+`;
+
+export const CardContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 2rem;
+  overflow: hidden;
+  border-radius: 10px;
+  
+`;
+
+export const ProjectImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Opacité du fond */
+  color: #fff; /* Couleur du texte */
+  padding: 20px;
+`;
+
+export const ProjectTitle = styled.h3`
+  font-size: 1.5rem;
+  font-family: 'Gallery', sans-serif;
+  margin-bottom: 10px;
+`;
+
+export const OpenProjectLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+`;
+
+
+
+
+
