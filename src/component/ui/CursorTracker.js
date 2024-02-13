@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const CursorContainer = styled.div`
   position: fixed;
@@ -10,12 +10,16 @@ const CursorContainer = styled.div`
   pointer-events: none;
   z-index: 9999;
   transition: transform 0.1s ease;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Cursor = styled.div`
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   background-color: #000;
   border-radius: 50%;
   transition: transform 0.1s ease;
