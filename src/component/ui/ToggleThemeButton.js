@@ -7,8 +7,8 @@ const ThemeToggleButton = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<ToggleButton onClick={toggleTheme} aria-label="Toggle Theme">
-			{theme === 'light' ? <Icons><FiMoon /></Icons> : <Icons><FiSun /></Icons>}
+		<ToggleButton onClick={toggleTheme} aria-label="Toggle Theme" theme={theme}>
+			{theme === 'light' ? <Icons theme={theme}><FiMoon /></Icons> : <Icons><FiSun /></Icons>}
 		</ToggleButton>
 
 	);

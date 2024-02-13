@@ -95,22 +95,22 @@ export const Link = styled.a`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 
   &:hover {
-	color: #00f;
+	color: rgba(145, 148, 185, 0.90);
   }
 `;
 
 
 export const Icons = styled.span`
   display: flex;
-  	color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
-  	  align-items: center;
-  	justify-content: center;
-	  font-size: 2rem;
+  color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 
   &:hover {
-		color: #00f;
-  	}
+    color: rgba(145, 148, 185, 0.90);
+  }
 `;
 
 export const NavbarLink = styled.div`
@@ -139,13 +139,13 @@ export const Card = styled.div`
 `;
 
 export const ToggleButton = styled.button`
-	  padding: 0.5rem 1rem;
-  color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
-  font-size: 1.5rem;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+	  padding: 0.5rem;
+  		background-color: ${props => props.theme === 'light' ? '#f0f0f0' : '#191919'};
+	  font-size: 1.5rem;
+	  border-radius: 50%;
+	  border: none;
+	  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  	  box-shadow: var(--box-shadow-lg);
 
   
 `;
