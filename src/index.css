@@ -6,8 +6,9 @@
 }
 
 * {
-  font-family: poppins, gallery, sans-serif;
-  box-sizing: border-box;
+    font-family: poppins, gallery, sans-serif;
+    box-sizing: border-box;
+    cursor: none;
 }
 
 body {
