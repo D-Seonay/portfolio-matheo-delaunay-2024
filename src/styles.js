@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 //Importing the index.css file
 import './index.css';
+import {animated} from "react-spring";
 
 export const GlassBackgroundStyle = styled.div`
   position: relative;
   background: ${props =>
   		props.theme === 'light' ? 'rgba(205, 205, 205, 0.2)' : 'rgba(0, 0, 0, 0.5)'};
-  
   padding: 0;
   width: 100%;
   height: 100vh;
@@ -79,7 +79,7 @@ export const Button = styled.button`
 
 export const NavbarStyle = styled.nav`
   background-color: ${props =>
-          props.theme === 'light' ? 'rgba(245, 245, 245, 0.5)' : 'rgba(0, 0, 0, 0.5)'};
+          props.theme === 'light' ? 'rgba(245, 245, 245, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,7 +175,8 @@ export const ProjectSliderStyle = styled.div`
   margin: 2rem;
 `;
 
-export const CardContainer = styled.div`
+
+export const CardContainerAnimated = styled(animated.div)`
   position: relative;
   display: flex;
   justify-content: center;
@@ -185,11 +186,8 @@ export const CardContainer = styled.div`
   overflow: hidden;
   border-radius: 10px;
   perspective: 1000px; /* Profondeur de la perspective */
-
-  /* Ajoutez de l'espace entre les cartes */
   margin-right: 1rem;
 `;
-
 
 export const ProjectImage = styled.img`
   width: 100%;
@@ -198,6 +196,7 @@ export const ProjectImage = styled.img`
   border-radius: 10px;
   transition: 0.3s;
   overflow: hidden;
+  filter: grayscale(100%);
 `;
 
 export const Overlay = styled.div`

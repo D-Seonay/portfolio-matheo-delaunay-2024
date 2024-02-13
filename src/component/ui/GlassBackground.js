@@ -22,6 +22,9 @@ const GlassBackground = ({ children }) => {
 			<Circle style={{ top: '80%', left: '80%' }}>
 				<Aura />
 			</Circle>
+			<Circle style={{ top: '90%', left: '20%' }}>
+				<Aura />
+			</Circle>
 
 		</GlassBackgroundStyle>
 	);
