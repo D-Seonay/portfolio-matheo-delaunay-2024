@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import Image from '../img/1.jpg'; // Importez votre image ici
 import WorkPreview1 from '../img/1.jpg'; // Importez l'aperçu du travail ici
 import WorkPreview2 from '../img/2.jpg';
-import {useTheme} from "./ThemeContext"; // Importez l'aperçu du travail ici (image différente)
+import {useTheme} from "./ThemeContext";
+import ContactMe from "./ui/ContactMe"; // Importez l'aperçu du travail ici (image différente)
 
 
 const AboutMeContainer = styled.div`
   height: 100vh;
   display: flex;
+  justify-content: center;
   flex-direction: column; /* Pour aligner les éléments verticalement */
   align-items: center;
 `;
@@ -19,11 +21,9 @@ const Title = styled.h1`
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   text-align: center;
   line-height: 0.7; 
-  margin-top: 10rem;
   
   @media (max-width: 768px) {
     font-size: 5rem; 
-	margin-top: 7rem;
     line-height: 1;
     
   }
@@ -101,6 +101,7 @@ const AboutMe = () => {
 					vehicula faucibus magna, nec efficitur ipsum viverra nec.
 				</Text>
 			</TextWithImage>
+			<ContactMe />
 		</ParallaxProvider>
 	);
 };
