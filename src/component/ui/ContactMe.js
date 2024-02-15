@@ -27,23 +27,27 @@ const DropMeEmailText = styled.h1`
   justify-content: center;
   align-items: center;
   height: 10vh;
-  font-size: 4rem;
+  font-size: 8rem;
   text-align: center;
   margin: 5rem 0;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  
+  @media (max-width: 1192px) {
+    font-size: 5rem;
+  }
 
   @media (max-width: 768px) {
-    font-size: 3rem;
+    flex-direction: column;
   }
 
   @media (max-width: 576px) {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 `;
 
 // Style du texte "EMAIL" avec animation
 const EmailText = styled.a`
-  font-size: 4rem;
+  font-size: 8rem;
   font-family: 'Gallery', sans-serif;
   display: inline-block;
   cursor: pointer;
@@ -54,13 +58,17 @@ const EmailText = styled.a`
   &:hover {
     animation: ${shakeAnimation} 0.5s ease-in-out infinite; /* Animation de secousse lors du survol */
   }
-
-  @media (max-width: 768px) {
-    font-size: 3rem;
+  
+  @media (max-width: 1192px) {
+    font-size: 5rem;
   }
 
+  @media (max-width: 768px) {
+	flex-direction: column;
+
   @media (max-width: 576px) {
-    font-size: 2rem;
+    flex-direction: column;
+    font-size: 4rem;
   }
 `;
 
