@@ -7,6 +7,7 @@ import Works from './component/Works';
 import CursorTracker from "./component/ui/CursorTracker";
 import WavyBorder from "./component/ui/WavyBorder";
 import AboutMe from "./component/ParallaxComponent";
+import Error404Page from "./component/Error404";
 
 function App() {
 	return (
@@ -21,7 +22,7 @@ function App() {
 						<Route path="/about" element={<AboutMe />} />
 						<Route path="/works" element={<Works />} />
 						<Route path="/wavy-border" element={<WavyBorder />} />
-						<Route path="*" element={<h1>404</h1>} />
+						<Route path="*" element={<Error404Page/>} />
 						{/* Définissez les autres routes ici */}
 					</Routes>
 				</Router>
