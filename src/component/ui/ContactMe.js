@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useTheme } from "../ThemeContext";
+const CV = require('../../pdf/cv-matheo-delaunay.pdf');
 
 // Animation pour le texte "EMAIL" lorsqu'il est survolé
 const shakeAnimation = keyframes`
@@ -50,7 +51,6 @@ const EmailText = styled.a`
   font-size: 8rem;
   font-family: 'Gallery', sans-serif;
   display: inline-block;
-  cursor: pointer;
   transition: transform 0.3s ease-in-out;
   margin-left: 1rem;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
@@ -131,6 +131,7 @@ transition: text-decoration 0.3s ease-in-out, color 0.3s ease-in-out;
 const Date = styled.p`
   display: flex;
   align-items: center;
+  margin: 0 1rem;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   font-size: 1rem;
   transition: color 0.3s ease-in-out, text-decoration 1s ease-in-out	;
@@ -157,6 +158,19 @@ const DateText = styled.p`
   }
 `;
 
+const CVLink = styled.a`
+  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 1rem;
+  transition: text-decoration 0.3s ease-in-out, color 0.3s ease-in-out;
+  
+  &:hover {
+    text-decoration: underline;
+	color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+  }
+`;
+
 const SmallLine = styled.div`
   display: flex;
   flex-direction: row;
@@ -180,6 +194,7 @@ const ContactMe = () => {
 			<Divider theme={theme} />
 			<SmallLine>
 				<Date theme={theme}>©2024 <DateText theme={theme}> Matheo Delaunay </DateText></Date>
+				<CVLink theme={theme} href={CV} target="_blank">Download CV</CVLink>
 				<SocialLinks>
 					<SocialLink theme={theme} href="https://www.linkedin.com/in/matheo-delaunay/" target="_blank">LinkedIn</SocialLink>
 					<SocialLink theme={theme} href="https://github.com/D-Seonay" target="_blank">GitHub</SocialLink>
