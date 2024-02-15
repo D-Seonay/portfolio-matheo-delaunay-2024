@@ -78,7 +78,7 @@ const ContactMeContainer = styled.footer`
   justify-content: center;
   align-items: center;
   color: #fff;
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
   width: 100%;
   height: 60vh;
@@ -93,11 +93,11 @@ const Title = styled.h1`
   }
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   @media (max-width: 576px) {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 `;
 
@@ -106,13 +106,6 @@ const Divider = styled.hr`
   margin: 1rem auto;
   border-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
 
-  @media (max-width: 768px) {
-    width: 50%;
-  }
-
-  @media (max-width: 576px) {
-    width: 30%;
-  }
 `;
 
 
