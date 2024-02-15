@@ -63,12 +63,14 @@ const ProjectSlider = ({ projects }) => {
 			downHandler={handleScroll}
 			style={{ overflowY: 'scroll', height: '100%' }}
 		>
-			<ProjectSliderStyle>
-				<Slider {...settings} ref={sliderRef} afterChange={handleAfterChange}>
+
+			<ProjectSliderStyle style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+				<Slider {...settings} ref={sliderRef} afterChange={handleAfterChange} style={{ width: '100%' }}>
 					{projects.map(project => (
 						<WorksCards key={project.id} title={project.title} img={project.img} link={project.link} />
 					))}
 				</Slider>
+
 				<ProgressBar theme={theme}>
 					<ProgressBarFill theme={theme} style={{ width: `${((currentSlide + 1) / projects.length) * 100}%` }} />
 				</ProgressBar>

@@ -9,7 +9,8 @@ export const GlassBackgroundStyle = styled.div`
   		props.theme === 'light' ? 'rgba(205, 205, 205, 0.2)' : 'rgba(0, 0, 0, 0.5)'};
   padding: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   overflow: hidden;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
@@ -84,7 +85,8 @@ export const NavbarStyle = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  position: relative;
+  position: fixed;
+  width: 100vw;
   z-index: 2;
 `;
 export const Link = styled.a`
@@ -170,6 +172,7 @@ export const ProgressBarFill = styled.div`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, width 0.5s ease-in-out;
 `;
 
+
 export const ProjectSliderStyle = styled.div`
   padding: 1rem;
   margin: 2rem;
@@ -181,11 +184,10 @@ export const CardContainerAnimated = styled(animated.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 60vw;
   height: 60vh; /* Hauteur fixe pour toutes les cartes */
   overflow: hidden;
   border-radius: 10px;
-  perspective: 1000px; /* Profondeur de la perspective */
   margin-right: 1rem;
 `;
 
