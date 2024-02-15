@@ -128,6 +128,8 @@ transition: text-decoration 0.3s ease-in-out, color 0.3s ease-in-out;
 `;
 
 const Date = styled.p`
+  display: flex;
+  align-items: center;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   font-size: 1rem;
   transition: color 0.3s ease-in-out, text-decoration 1s ease-in-out	;
@@ -136,6 +138,21 @@ const Date = styled.p`
     color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
     text-decoration: underline;
     
+  }
+`;
+
+const DateText = styled.p`
+  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  transition: color 0.3s ease-in-out, text-decoration 1s ease-in-out;
+  
+  &:hover {
+    color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+	text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -161,10 +178,10 @@ const ContactMe = () => {
 			</DropMeEmailText>
 			<Divider theme={theme} />
 			<SmallLine>
-				<Date theme={theme}>2024 © Matheo Delaunay</Date>
+				<Date theme={theme}>©2024 <DateText theme={theme}> Matheo Delaunay </DateText></Date>
 				<SocialLinks>
-					<SocialLink theme={theme} href="https://www.linkedin.com/in/matheo-delaunay/" _blank="true">LinkedIn</SocialLink>
-					<SocialLink theme={theme} href="https://github.com/D-Seonay" _blank="true">GitHub</SocialLink>
+					<SocialLink theme={theme} href="https://www.linkedin.com/in/matheo-delaunay/" target="_blank">LinkedIn</SocialLink>
+					<SocialLink theme={theme} href="https://github.com/D-Seonay" target="_blank">GitHub</SocialLink>
 				</SocialLinks>
 			</SmallLine>
 		</ContactMeContainer>
