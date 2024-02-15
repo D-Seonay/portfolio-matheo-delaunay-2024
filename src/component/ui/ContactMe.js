@@ -82,6 +82,10 @@ const ContactMeContainer = styled.footer`
   text-align: center;
   width: 100%;
   height: 60vh;
+  
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -159,6 +163,9 @@ const DateText = styled.p`
 `;
 
 const CVLink = styled.a`
+  	display: flex;
+	align-items: center;
+  
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   text-decoration: none;
   font-size: 1rem;
@@ -168,6 +175,22 @@ const CVLink = styled.a`
   &:hover {
     text-decoration: underline;
 	color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+  }
+`;
+
+const CVLinkText = styled.p`
+  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  transition: color 0.3s ease-in-out, text-decoration 1s ease-in-out;
+  	
+  &:hover {
+    color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+    	text-decoration: underline;
+    
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -194,7 +217,7 @@ const ContactMe = () => {
 			<Divider theme={theme} />
 			<SmallLine>
 				<Date theme={theme}>©2024 <DateText theme={theme}> Matheo Delaunay </DateText></Date>
-				<CVLink theme={theme} href={CV} target="_blank">Download CV</CVLink>
+				<CVLink theme={theme} href={CV} target="_blank"> <CVLinkText theme={theme}> Download </CVLinkText> CV </CVLink>
 				<SocialLinks>
 					<SocialLink theme={theme} href="https://www.linkedin.com/in/matheo-delaunay/" target="_blank">LinkedIn</SocialLink>
 					<SocialLink theme={theme} href="https://github.com/D-Seonay" target="_blank">GitHub</SocialLink>
