@@ -1,7 +1,7 @@
 import React from 'react';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 import styled from 'styled-components';
-import Image from '../../img/4.jpg'; // Importez votre image ici
+import Image from '../../img/4.png'; // Importez votre image ici
 
 
 

@@ -8,6 +8,7 @@ import CursorTracker from "./component/ui/CursorTracker";
 import WavyBorder from "./component/ui/WavyBorder";
 import AboutMe from "./component/AboutMe";
 import Error404Page from "./component/Error404";
+import Footer from "./component/Footer";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 						<Route path="*" element={<Error404Page/>} />
 						{/* Définissez les autres routes ici */}
 					</Routes>
+					<Footer />
 				</Router>
 			</GlassBackground>
 		</>

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useTheme} from "./ThemeContext";
 import WorkPreview1 from "../img/1.jpg";
-import WorkPreview2 from "../img/2.jpg";
-import WorkPreview3 from "../img/3.jpg";
+import WorkPreview2 from "../img/2-min.png";
+import WorkPreview3 from "../img/5-min.png";
 import HeroImg from "../img/Hero.jpg";
 import {ParallaxProvider} from "react-scroll-parallax";
 import ContactMe from "./ui/ContactMe";
@@ -19,13 +19,13 @@ const AboutMeContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 10rem;
+  font-size: 10vw;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   text-align: center;
   line-height: 0.7; 
   
   @media (max-width: 768px) {
-    font-size: 5rem; 
+    font-size: 6vw; 
     line-height: 1;
   }
 `;
@@ -51,7 +51,7 @@ const WorkPreviewLink = styled.a`
 `;
 
 const WorkPreviewImage = styled.img`
-  width: 10rem; /* Taille de l'aperçu du travail */
+  width: 10vw; /* Taille de l'aperçu du travail */
   height: auto; /* Maintenir le ratio hauteur-largeur */
   display: inline-block; /* Aligner l'image horizontalement avec le texte */
 `;
@@ -70,10 +70,11 @@ const TextWithImage = styled.div`
   justify-content: center;
   height: 100vh;
   text-align: center;
-  padding: 0 2rem;
+  padding: 0 5rem;
   
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 0;
     
   }
 `;
@@ -84,8 +85,12 @@ const Text = styled.span`
   margin-right: 2rem;
   text-align: left;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1192px) {
     font-size: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
     margin-right: 0;
     text-align: center;
   
@@ -118,9 +123,16 @@ const AboutMe = () => {
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			// Changez l'image de preview toutes les 10 secondes
-			setCurrentWorkPreview((prevImage) =>
-				prevImage === WorkPreview1 ? WorkPreview2 : WorkPreview1
-			);
+			setCurrentWorkPreview((prevImage) => {
+				if (prevImage === WorkPreview1) {
+					return WorkPreview2;
+				} else if (prevImage === WorkPreview2) {
+					return WorkPreview3;
+				} else {
+					// Retournez à la première image si nous sommes à la troisième
+					return WorkPreview1;
+				}
+			});
 		}, 2000);
 
 		// Nettoyez l'intervalle lorsqu'on quitte le composant
@@ -147,8 +159,7 @@ const AboutMe = () => {
 			<TextWithImage>
 
 				<Text theme={theme}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-					vehicula faucibus magna, nec efficitur ipsum viverra nec.
+					I ' Mathéo DELAUNAY, a computer engineering student at EPSI Nantes. Passionate about programming and computing in general, I ' ve acquired skills in HTML, CSS, PHP, MySQL and Adobe suites. I also enjoy mountain sports and video games. Check out my portfolio to find out more about my skills and achievements.
 				</Text>
 
 				<HeroImage src={HeroImg} alt="Hero Image" />

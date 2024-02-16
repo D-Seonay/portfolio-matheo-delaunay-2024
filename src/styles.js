@@ -79,8 +79,7 @@ export const Button = styled.button`
 
 
 export const NavbarStyle = styled.nav`
-  background-color: ${props =>
-          props.theme === 'light' ? 'rgba(245, 245, 245, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,11 +88,11 @@ export const NavbarStyle = styled.nav`
   width: 100vw;
   z-index: 2;
 `;
+
 export const Link = styled.a`
-  	color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
+  	color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
 	  margin-right: 1rem;
   text-decoration: none;
-  font-weight: bold;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 
   &:hover {
@@ -122,6 +121,14 @@ export const NavbarLink = styled.div`
 	  text-align: center;
 	  align-items: center;
 	  position: relative;
+  	  z-index: 2;
+      transition: text-decoration 0.5s ease-in-out, color 0.5s ease-in-out;
+  
+  
+  
+  a.active {
+    text-decoration: line-through;
+  }
 `;
 
 
@@ -141,9 +148,9 @@ export const Card = styled.div`
 `;
 
 export const ToggleButton = styled.button`
-	  padding: 0.5rem;
+	  padding: 0.25rem;
   		background-color: ${props => props.theme === 'light' ? '#f0f0f0' : '#191919'};
-	  font-size: 1.5rem;
+	  font-size: 1rem;
 	  border-radius: 50%;
 	  border: none;
 	  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
