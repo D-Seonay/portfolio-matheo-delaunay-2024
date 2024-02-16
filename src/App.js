@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Remplacez 'Switch' par 'Route'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './component/Navbar';
 import './index.css';
 import GlassBackground from './component/ui/GlassBackground';
 import Works from './component/Works';
 import CursorTracker from "./component/ui/CursorTracker";
 import WavyBorder from "./component/ui/WavyBorder";
-import AboutMe from "./component/ParallaxComponent";
+import AboutMe from "./component/AboutMe";
 import Error404Page from "./component/Error404";
 
 function App() {
