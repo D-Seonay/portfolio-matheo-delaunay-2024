@@ -76,8 +76,9 @@ const TimelineContent = styled.div`
   padding: 20px;
   min-width: 30vw;
   max-width: 35vw;
-  border-radius: 5px;
-  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
+  border-radius: 20px;
+  background-color: rgba(145, 148, 185, 0.50);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
   @media (max-width: 1024px) {
     min-width: 65vw;
@@ -179,7 +180,7 @@ const MyTimeline = () => {
 			date: 'Septembre 2022 - Présent',
 			description: "École d'ingénieur en informatique située à Nantes, post-bac à bac+5.",
 			logo: logoEPSI,
-			link: 'https://www.example.com',
+			link: 'https://www.epsi.fr/',
 		},
 		{
 			title: 'Alternance au lycée La Mennais',
