@@ -43,7 +43,7 @@ const TimelineMarker = styled.div`
   right: ${props => (props.isOdd ? 'calc(50% - 1px)' : 'auto')};
   width: 2px;
   height: 100%;
-  background-color: #ccc;
+  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
   
   @media (max-width: 1024px) {
     z-index: -1;
@@ -59,7 +59,7 @@ const TimelineDot = styled.div`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
   
   @media (max-width: 1024px) {
     z-index: -1;
@@ -71,7 +71,7 @@ const TimelineContent = styled.div`
   padding: 20px;
   min-width: 30vw;
   border-radius: 5px;
-  background-color: #f0f0f0;
+  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
 
   @media (max-width: 1024px) {
     min-width: 65vw;
@@ -90,20 +90,20 @@ const Time = styled.time`
   display: block;
   font-size: 1.2rem;
   margin-bottom: 8px;
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 `;
 
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
-
-  &:hover {
-    
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+  
   }
 
   @media (max-width: 768px) {
@@ -116,18 +116,20 @@ const Title = styled.h1`
 `;
 
 const TitleH2 = styled.h2`
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
   font-size: 2rem;
   margin-bottom: 8px;
 `;
 
 const Text = styled.p`
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
   font-size: 1rem;
 `;
 
 const Divider = styled.hr`
   width: 75%;
   margin: 1rem auto;
-  border-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  border-color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 
 `;
 
@@ -138,12 +140,12 @@ const ReactTimeline = ({ events }) => {
 			<TimelineList>
 				{events.map((event, index) => (
 					<TimelineListItem key={index} isOdd={index % 2 !== 0}>
-						<TimelineMarker isOdd={index % 2 !== 0} />
-						<TimelineDot isOdd={index % 2 !== 0} />
-						<TimelineContent isOdd={index % 2 !== 0}>
-							<Time>{event.date}</Time>
-							<TitleH2>{event.title}</TitleH2>
-							<Text>{event.description}</Text>
+						<TimelineMarker isOdd={index % 2 !== 0} theme={theme} />
+						<TimelineDot isOdd={index % 2 !== 0} theme={theme} />
+						<TimelineContent isOdd={index % 2 !== 0} theme={theme}>
+							<Time theme={theme}>{event.date}</Time>
+							<TitleH2 theme={theme}>{event.title}</TitleH2>
+							<Text theme={theme}>{event.description}</Text>
 						</TimelineContent>
 					</TimelineListItem>
 				))}
