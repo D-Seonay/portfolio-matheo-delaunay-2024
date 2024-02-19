@@ -8,6 +8,7 @@ import {ParallaxProvider} from "react-scroll-parallax";
 import ContactMe from "./ui/ContactMe";
 import styled from "styled-components";
 import ParallaxComponent from "./ui/ParallaxComponent";
+import MyTimeline from "./ui/Timeline";
 
 
 const AboutMeContainer = styled.div`
@@ -165,6 +166,7 @@ const AboutMe = () => {
 				<HeroImage src={HeroImg} alt="Hero Image" />
 
 			</TextWithImage>
+			<MyTimeline />
 			<ParallaxComponent />
 			<ContactMe />
 		</ParallaxProvider>
