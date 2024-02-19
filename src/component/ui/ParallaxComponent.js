@@ -1,7 +1,8 @@
 import React from 'react';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 import styled from 'styled-components';
-import Image from '../../img/7.jpg'; // Importez votre image ici
+import Image from '../../img/7.jpg';
+import {useTheme} from "../ThemeContext"; // Importez votre image ici
 
 
 
@@ -26,16 +27,16 @@ const ParallaxHero = styled.div`
   }
 `;
 
-
 const ParallaxComponent = () => {
-  return (
-	<ParallaxProvider>
-	  <ParallaxHero>
-		<ParallaxBanner layers={[{ image: Image, amount: 0.5, speed: -10 }]} style={{ height: '100%' }}>
-		</ParallaxBanner>
-	  </ParallaxHero>
-	</ParallaxProvider>
-  );
+	const { theme } = useTheme();
+	return (
+		<ParallaxProvider>
+			<ParallaxHero>
+				<ParallaxBanner layers={[{ image: Image, amount: 0.5, speed: -10 }]} style={{ height: '100%', filter: theme === 'light' ? "none"  : 'invert(0.6)' }}>
+				</ParallaxBanner>
+			</ParallaxHero>
+		</ParallaxProvider>
+	);
 }
 
 export default ParallaxComponent;
