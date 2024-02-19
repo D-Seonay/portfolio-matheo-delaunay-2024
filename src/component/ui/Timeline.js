@@ -1,9 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useTheme} from "../ThemeContext";
+
+
+const TimelineContainer = styled.div`
+  padding: 5vh 5vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
 
 const TimelineSection = styled.section`
   padding: 5vh 5vw;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TimelineList = styled.ul`
@@ -69,7 +80,7 @@ const TimelineContent = styled.div`
   
   @media (max-width: 768px) {
     min-width: 90vw;
-    border-radius: 25;
+    border-radius: 25px;
     
   }
 `;
@@ -81,6 +92,29 @@ const Time = styled.time`
   margin-bottom: 8px;
 `;
 
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+
+  &:hover {
+    
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 2rem;
+  }
+`;
+
 const TitleH2 = styled.h2`
   font-size: 2rem;
   margin-bottom: 8px;
@@ -90,7 +124,15 @@ const Text = styled.p`
   font-size: 1rem;
 `;
 
+const Divider = styled.hr`
+  width: 75%;
+  margin: 1rem auto;
+  border-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+
+`;
+
 const ReactTimeline = ({ events }) => {
+	const { theme } = useTheme();
 	return (
 		<TimelineSection className="timeline">
 			<TimelineList>
@@ -140,11 +182,16 @@ const MyTimeline = () => {
 		},
 	];
 
+	const { theme } = useTheme();
 	return (
-		<div>
-			<h1>Mon Parcours</h1>
+
+		<TimelineContainer>
+			<TitleContainer>
+				<Title theme={theme}>Me Timeline</Title>
+				<Divider theme={theme} />
+			</TitleContainer>
 			<ReactTimeline events={events} />
-		</div>
+		</TimelineContainer>
 	);
 };
 
