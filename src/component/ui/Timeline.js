@@ -22,14 +22,14 @@ const TimelineSection = styled.section`
   flex-direction: column;
 `;
 
-const TimelineList = styled.ul`
+const TimelineList = styled.div`
   display: flex;
   flex-direction: column;
   list-style-type: none;
   padding: 0;
 `;
 
-const TimelineListItem = styled.li`
+const TimelineListItem = styled.div`
   position: relative;
   display: flex;
   justify-content: ${props => (props.isOdd ? 'flex-end' : 'flex-start')};
@@ -76,7 +76,7 @@ const TimelineContent = styled.div`
   padding: 20px;
   min-width: 30vw;
   max-width: 35vw;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#404040')};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
@@ -87,8 +87,6 @@ const TimelineContent = styled.div`
 
   @media (max-width: 768px) {
     min-width: 90vw;
-    border-radius: 25px;
-
   }
 `;
 
