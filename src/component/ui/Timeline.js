@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import {useTheme} from "../ThemeContext";
-
+import { useTheme } from "../ThemeContext";
+import { Link, Element } from 'react-scroll';
 
 const TimelineContainer = styled.div`
   padding: 5vh 5vw;
@@ -44,7 +44,7 @@ const TimelineMarker = styled.div`
   width: 2px;
   height: 100%;
   background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
-  
+
   @media (max-width: 1024px) {
     z-index: -1;
   }
@@ -60,7 +60,7 @@ const TimelineDot = styled.div`
   height: 8px;
   border-radius: 50%;
   background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
-  
+
   @media (max-width: 1024px) {
     z-index: -1;
   }
@@ -77,11 +77,11 @@ const TimelineContent = styled.div`
     min-width: 65vw;
     margin: 20px 0;
   }
-  
+
   @media (max-width: 768px) {
     min-width: 90vw;
     border-radius: 25px;
-    
+
   }
 `;
 
@@ -97,14 +97,11 @@ const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
-  
-  }
 
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -130,24 +127,27 @@ const Divider = styled.hr`
   width: 75%;
   margin: 1rem auto;
   border-color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
-
 `;
 
 const ReactTimeline = ({ events }) => {
 	const { theme } = useTheme();
+	const contentRefs = useRef(events.map(() => React.createRef())); // Create refs for each content item
+
 	return (
 		<TimelineSection className="timeline">
 			<TimelineList>
 				{events.map((event, index) => (
-					<TimelineListItem key={index} isOdd={index % 2 !== 0}>
-						<TimelineMarker isOdd={index % 2 !== 0} theme={theme} />
-						<TimelineDot isOdd={index % 2 !== 0} theme={theme} />
-						<TimelineContent isOdd={index % 2 !== 0} theme={theme}>
-							<Time theme={theme}>{event.date}</Time>
-							<TitleH2 theme={theme}>{event.title}</TitleH2>
-							<Text theme={theme}>{event.description}</Text>
-						</TimelineContent>
-					</TimelineListItem>
+					<Element name={`event${index}`} key={index}>
+						<TimelineListItem key={index} isOdd={index % 2 !== 0}>
+							<TimelineMarker isOdd={index % 2 !== 0} theme={theme} />
+							<TimelineDot isOdd={index % 2 !== 0} theme={theme} />
+							<TimelineContent ref={contentRefs.current[index]} isOdd={index % 2 !== 0} theme={theme}>
+								<Time theme={theme}>{event.date}</Time>
+								<TitleH2 theme={theme}>{event.title}</TitleH2>
+								<Text theme={theme}>{event.description}</Text>
+							</TimelineContent>
+						</TimelineListItem>
+					</Element>
 				))}
 			</TimelineList>
 		</TimelineSection>
@@ -155,6 +155,7 @@ const ReactTimeline = ({ events }) => {
 };
 
 const MyTimeline = () => {
+	const [visibleSections, setVisibleSections] = useState([]);
 	const events = [
 		{
 			title: 'Études en Informatique',
@@ -171,7 +172,6 @@ const MyTimeline = () => {
 			date: 'Septembre 2022 - Présent',
 			description: "Master en Sciences des Données à l'Université Y",
 		},
-
 		{
 			title: 'Stage en Data Science',
 			date: 'Juillet 2023 - Septembre 2023',
@@ -185,14 +185,52 @@ const MyTimeline = () => {
 	];
 
 	const { theme } = useTheme();
-	return (
 
+	const contentRefs = useRef(events.map(() => React.createRef())); // Create refs for each content item
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const sectionOffsets = contentRefs.current.map(ref => ref.current ? ref.current.getBoundingClientRect().top : null);
+			const visibleIndex = sectionOffsets.findIndex(offset => offset && offset > 0) ?? events.length - 1;
+			setVisibleSections([...Array(visibleIndex + 2).keys()]);
+		};
+		window.addEventListener('scroll', handleScroll);
+		handleScroll(); // Initial calculation
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [events]);
+
+
+	return (
 		<TimelineContainer>
 			<TitleContainer>
 				<Title theme={theme}>Me Timeline</Title>
 				<Divider theme={theme} />
 			</TitleContainer>
-			<ReactTimeline events={events} />
+			<TimelineSection>
+				<TimelineList>
+					{events.map((event, index) => (
+						<Element name={`event${index}`} key={index}>
+							<TimelineListItem key={index} isOdd={index % 2 !== 0}>
+								<TimelineMarker isOdd={index % 2 !== 0} theme={theme} />
+								<TimelineDot isOdd={index % 2 !== 0} theme={theme} />
+								<TimelineContent
+									ref={contentRefs.current[index]}
+									isOdd={index % 2 !== 0}
+									theme={theme}
+									style={{
+										transition: 'opacity 0.5s',
+										opacity: visibleSections.includes(index) ? 1 : 0,
+									}}
+								>
+									<Time theme={theme}>{event.date}</Time>
+									<TitleH2 theme={theme}>{event.title}</TitleH2>
+									<Text theme={theme}>{event.description}</Text>
+								</TimelineContent>
+							</TimelineListItem>
+						</Element>
+					))}
+				</TimelineList>
+			</TimelineSection>
 		</TimelineContainer>
 	);
 };
