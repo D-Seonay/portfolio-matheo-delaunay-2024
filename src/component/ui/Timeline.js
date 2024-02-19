@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useTheme } from "../ThemeContext";
-import { Link, Element } from 'react-scroll';
+import { Element } from 'react-scroll';
+import logoEPSI from "../../img/logo-timeline/LOGO_EPSI.png";
+import logoLaMennais from "../../img/logo-timeline/LOGO_LaMennais.png";
+import logoStFelix from "../../img/logo-timeline/LOGO_StFelix.png";
+import LogoNoBullShitTech from "../../img/logo-timeline/LOGO_NoBullShitTech.svg";
+
 
 const TimelineContainer = styled.div`
   padding: 5vh 5vw;
@@ -70,6 +75,7 @@ const TimelineContent = styled.div`
   margin-${props => (props.isOdd ? 'right' : 'left')}: 20px;
   padding: 20px;
   min-width: 30vw;
+  max-width: 35vw;
   border-radius: 5px;
   background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
 
@@ -123,64 +129,71 @@ const Text = styled.p`
   font-size: 1rem;
 `;
 
+const LogoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: relative;
+`;
+
+const LogoImage = styled.img`
+  width: 100px; /* taille du logo */
+  height: auto;
+  border-radius: inherit;
+  margin-right: 1rem; /* espace à droite du logo */
+`;
+
+const LinkA = styled.a`
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: right;
+  text-decoration: none;
+  transition: background-color 0.3s;
+`;
+
+
 const Divider = styled.hr`
   width: 75%;
   margin: 1rem auto;
   border-color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 `;
 
-const ReactTimeline = ({ events }) => {
-	const { theme } = useTheme();
-	const contentRefs = useRef(events.map(() => React.createRef())); // Create refs for each content item
-
-	return (
-		<TimelineSection className="timeline">
-			<TimelineList>
-				{events.map((event, index) => (
-					<Element name={`event${index}`} key={index}>
-						<TimelineListItem key={index} isOdd={index % 2 !== 0}>
-							<TimelineMarker isOdd={index % 2 !== 0} theme={theme} />
-							<TimelineDot isOdd={index % 2 !== 0} theme={theme} />
-							<TimelineContent ref={contentRefs.current[index]} isOdd={index % 2 !== 0} theme={theme}>
-								<Time theme={theme}>{event.date}</Time>
-								<TitleH2 theme={theme}>{event.title}</TitleH2>
-								<Text theme={theme}>{event.description}</Text>
-							</TimelineContent>
-						</TimelineListItem>
-					</Element>
-				))}
-			</TimelineList>
-		</TimelineSection>
-	);
-};
-
 const MyTimeline = () => {
 	const [visibleSections, setVisibleSections] = useState([]);
 	const events = [
 		{
-			title: 'Études en Informatique',
-			date: 'Septembre 2018 - Juin 2022',
-			description: "Baccalauréat en Informatique à l'Université X",
-		},
-		{
 			title: 'Stage en Développement Web',
-			date: 'Juillet 2021 - Septembre 2021',
-			description: "Stage chez XYZ Entreprise, développement d'une application web.",
+			date: 'Mai 2023 - Juin 2023',
+			description: "Stage chez NoBullShitTech, une entreprise de développement web.",
+			logo: LogoNoBullShitTech,
+			link: 'https://engineers.getnobullshit.com/',
 		},
 		{
-			title: 'Études en Sciences des Données',
+			title: 'Études en Informatique chez EPSI Nantes',
 			date: 'Septembre 2022 - Présent',
-			description: "Master en Sciences des Données à l'Université Y",
+			description: "École d'ingénieur en informatique située à Nantes, post-bac à bac+5.",
+			logo: logoEPSI,
+			link: 'https://www.example.com',
 		},
 		{
-			title: 'Stage en Data Science',
-			date: 'Juillet 2023 - Septembre 2023',
-			description: "Stage chez ABC Entreprise, analyse de données.",
+			title: 'Alternance au lycée La Mennais',
+			date: 'Novembre 2020 - Août 2022',
+			description: "Maintenance informatique et gestion de parc.",
+			logo: logoLaMennais,
+			link: 'https://www.lycee-lamennais.fr/',
 		},
 		{
-			title: 'Début de carrière',
-			date: 'Septembre 2023 - Présent',
-			description: "Début de carrière chez ZZZ Entreprise.",
+			title: 'Bachelor professionnel en SN option RISC',
+			date: 'Septembre 2019 - Août 2022',
+			description: "Bac en Systèmes Numériques option Réseaux Informatiques et Systèmes Communicants à St Félix La Salle.",
+			logo: logoStFelix,
+			link: 'https://stfelixlasalle.fr/',
 		},
 	];
 
@@ -194,11 +207,12 @@ const MyTimeline = () => {
 			const visibleIndex = sectionOffsets.findIndex(offset => offset && offset > 0) ?? events.length - 1;
 			setVisibleSections([...Array(visibleIndex + 2).keys()]);
 		};
+
 		window.addEventListener('scroll', handleScroll);
 		handleScroll(); // Initial calculation
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, [events]);
 
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []); // Utilisez une liste de dépendances vide
 
 	return (
 		<TimelineContainer>
@@ -225,6 +239,17 @@ const MyTimeline = () => {
 									<Time theme={theme}>{event.date}</Time>
 									<TitleH2 theme={theme}>{event.title}</TitleH2>
 									<Text theme={theme}>{event.description}</Text>
+
+									<LogoContainer>
+										{event.link ? (
+											<LinkA href={event.link} target="_blank" rel="noopener noreferrer">
+												<LogoImage src={event.logo} alt={event.title} />
+											</LinkA>
+										) : (
+											<LogoImage src={event.logo} alt={event.title} />
+										)}
+									</LogoContainer>
+
 								</TimelineContent>
 							</TimelineListItem>
 						</Element>
