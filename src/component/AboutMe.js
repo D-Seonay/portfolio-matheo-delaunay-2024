@@ -156,7 +156,7 @@ const AboutMe = () => {
 			<ParallaxComponent />
 
 			<TitleH2 theme={theme}>About Me</TitleH2>
-			<Divider />
+			<Divider theme={theme} />
 			<TextWithImage>
 
 				<Text theme={theme}>

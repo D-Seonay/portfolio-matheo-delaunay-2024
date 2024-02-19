@@ -48,7 +48,7 @@ const TimelineMarker = styled.div`
   right: ${props => (props.isOdd ? 'calc(50% - 1px)' : 'auto')};
   width: 2px;
   height: 100%;
-  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
+  background-color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 
   @media (max-width: 1024px) {
     z-index: -1;
@@ -64,7 +64,7 @@ const TimelineDot = styled.div`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#191919')};
+  background-color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 
   @media (max-width: 1024px) {
     z-index: -1;
@@ -77,8 +77,8 @@ const TimelineContent = styled.div`
   min-width: 30vw;
   max-width: 35vw;
   border-radius: 20px;
-  background-color: rgba(145, 148, 185, 0.50);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#404040')};
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 1024px) {
     min-width: 65vw;
@@ -162,7 +162,7 @@ const LinkA = styled.a`
 const Divider = styled.hr`
   width: 75%;
   margin: 1rem auto;
-  border-color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+  border-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
 `;
 
 const MyTimeline = () => {
