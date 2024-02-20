@@ -14,10 +14,10 @@ const rotateAnimation = keyframes`
 
 const rotateAnimation2 = keyframes`
   from {
-    transform: rotate(0deg) translateY(-100px) rotate(0deg);
+    transform: rotate(0deg) translateY(-150px) rotate(0deg);
   }
   to {
-	transform: rotate(-360deg) translateY(-100px) rotate(360deg);
+	transform: rotate(-360deg) translateY(-150px) rotate(360deg);
   }
 `;
 

@@ -80,6 +80,10 @@ const SkillsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    width: 300px;
+  }
 `;
 
 const SkillTitle = styled.h2`
