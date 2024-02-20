@@ -75,7 +75,7 @@ const TextWithImage = styled.div`
   text-align: center;
   padding: 0 5rem;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1192px) {
     flex-direction: column;
     padding: 0;
     
@@ -111,7 +111,6 @@ const Text = styled.span`
   @media (max-width: 768px) {
     font-size: 1rem;
     margin-right: 0;
-    text-align: center;
   
   }
 `;
@@ -125,7 +124,7 @@ const HeroImage = styled.img`
 	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	  transition: 0.3s;
 	  
-	  @media (max-width: 768px) {
+	  @media (max-width: 1192px) {
 	  		width: 80vw;
 	  		margin-left: 0;
 	  		margin-top: 2rem;
