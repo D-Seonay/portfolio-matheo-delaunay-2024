@@ -3,13 +3,12 @@ import {useTheme} from "./ThemeContext";
 import WorkPreview1 from "../img/1.jpg";
 import WorkPreview2 from "../img/2-min.png";
 import WorkPreview3 from "../img/5-min.png";
-import HeroImg from "../img/Hero.jpg";
+import HeroImg from "../img/MatheoDELAUNAY.png"
 import {ParallaxProvider} from "react-scroll-parallax";
 import ContactMe from "./ui/ContactMe";
 import styled from "styled-components";
 import ParallaxComponent from "./ui/ParallaxComponent";
 import MyTimeline from "./ui/Timeline";
-import {Button} from "../styles";
 import DownloadButton from "./ui/DownloadButton";
 
 
@@ -121,7 +120,6 @@ const HeroImage = styled.img`
 	  object-position: center;
 	  border-radius: 10px;
 	  margin-left: 2rem;
-	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	  transition: 0.3s;
 	  
 	  @media (max-width: 1192px) {
