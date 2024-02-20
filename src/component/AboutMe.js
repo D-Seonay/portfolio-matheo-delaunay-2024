@@ -10,6 +10,7 @@ import styled from "styled-components";
 import ParallaxComponent from "./ui/ParallaxComponent";
 import MyTimeline from "./ui/Timeline";
 import DownloadButton from "./ui/DownloadButton";
+import SkillsServicesList from "./ui/SkillsServicesList";
 
 
 const AboutMeContainer = styled.div`
@@ -184,6 +185,9 @@ const AboutMe = () => {
 				<HeroImage src={HeroImg} alt="Hero Image" />
 
 			</TextWithImage>
+
+			<Divider theme={theme} />
+			<SkillsServicesList />
 			<MyTimeline />
 			<ParallaxComponent />
 			<ContactMe />
