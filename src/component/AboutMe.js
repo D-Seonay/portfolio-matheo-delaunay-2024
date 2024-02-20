@@ -9,6 +9,8 @@ import ContactMe from "./ui/ContactMe";
 import styled from "styled-components";
 import ParallaxComponent from "./ui/ParallaxComponent";
 import MyTimeline from "./ui/Timeline";
+import {Button} from "../styles";
+import DownloadButton from "./ui/DownloadButton";
 
 
 const AboutMeContainer = styled.div`
@@ -80,11 +82,26 @@ const TextWithImage = styled.div`
   }
 `;
 
+const SectionTextButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-right: 2rem;
+  
+  @media (max-width: 768px) {
+    margin-right: 0;
+	margin-top: 2rem;
+    
+  }
+
+`;
 const Text = styled.span`
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   margin-right: 2rem;
-  text-align: left;
+  text-align: justify;
+  max-width: 50vw;
   
   @media (max-width: 1192px) {
     font-size: 1.5rem;
@@ -99,7 +116,6 @@ const Text = styled.span`
 `;
 
 const HeroImage = styled.img`
-	  width: 40vw;
 	  height: 60vh;
 	  object-fit: cover;
 	  object-position: center;
@@ -158,10 +174,14 @@ const AboutMe = () => {
 			<TitleH2 theme={theme}>About Me</TitleH2>
 			<Divider theme={theme} />
 			<TextWithImage>
+				<SectionTextButton>
 
-				<Text theme={theme}>
-					I ' Mathéo DELAUNAY, a computer engineering student at EPSI Nantes. Passionate about programming and computing in general, I ' ve acquired skills in HTML, CSS, PHP, MySQL and Adobe suites. I also enjoy mountain sports and video games. Check out my portfolio to find out more about my skills and achievements.
-				</Text>
+					<Text theme={theme}>
+						I ' Mathéo DELAUNAY, a computer engineering student at EPSI Nantes. Passionate about programming and computing in general, I ' ve acquired skills in HTML, CSS, PHP, MySQL and Adobe suites. I also enjoy mountain sports and video games. Check out my portfolio to find out more about my skills and achievements.
+					</Text>
+					<DownloadButton theme={theme} />
+				</SectionTextButton>
+
 
 				<HeroImage src={HeroImg} alt="Hero Image" />
 
