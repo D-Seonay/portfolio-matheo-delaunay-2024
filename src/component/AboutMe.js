@@ -105,6 +105,7 @@ const Text = styled.span`
   
   @media (max-width: 1192px) {
     font-size: 1.5rem;
+    max-width: 80vw;
   }
   
   @media (max-width: 768px) {
