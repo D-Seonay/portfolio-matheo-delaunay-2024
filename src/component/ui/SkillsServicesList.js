@@ -1,36 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import SkillItem from './SkillItem';
-import { MdCode, MdComputer, MdBrush, MdBuild } from 'react-icons/md';
-import { FaDatabase } from "react-icons/fa";
+import { MdBrush} from 'react-icons/md';
+import { FaHtml5, FaCss3Alt, FaReact, FaVuejs, FaNode,FaPhp, FaSymfony, FaFigma, FaGitAlt, FaApple, FaLinux, FaDocker } from "react-icons/fa";
+import { IoLogoJavascript, IoTerminal } from "react-icons/io5";
+import { DiMysql } from "react-icons/di";
+import { SiAdobe } from "react-icons/si";
+import { TbBrandVscode } from "react-icons/tb";
+
+
+
+
+
+
+
 
 const skillsData = {
-	frontend: [
-		{ name: 'HTML', icon: MdCode },
-		{ name: 'CSS', icon: MdCode },
-		{ name: 'JavaScript', icon: MdCode },
-		{ name: 'React', icon: MdCode },
-		{ name: 'Vue.js', icon: MdCode }
+	Frontend: [
+		{ name: 'HTML', icon: FaHtml5 },
+		{ name: 'CSS', icon: FaCss3Alt },
+		{ name: 'JavaScript', icon: IoLogoJavascript },
+		{ name: 'React', icon: FaReact },
+		{ name: 'Vue.js', icon: FaVuejs }
 	],
-	backend: [
-		{ name: 'Node.js', icon: MdCode },
-		{ name: 'Express', icon: MdCode },
-		{ name: 'MongoDB', icon: FaDatabase },
-		{ name: 'MySQL', icon: FaDatabase },
-		{ name: 'Firebase', icon: MdCode }
+	Backend: [
+		{ name: 'Node.js', icon: FaNode },
+		{ name: 'Php', icon: FaPhp },
+		{ name: 'Symfony', icon: FaSymfony },
+		{ name: 'MySQL', icon: DiMysql },
 	],
-	creative: [
+	Creative: [
 		{ name: 'UI/UX Design', icon: MdBrush },
-		{ name: 'Adobe Creative Suite', icon: MdBrush },
-		{ name: 'Sketch', icon: MdBrush },
-		{ name: 'Figma', icon: MdBrush }
+		{ name: 'Adobe Creative Suite', icon: SiAdobe },
+		{ name: 'Figma', icon: FaFigma }
 	],
-	devtools: [
-		{ name: 'Git', icon: MdBuild },
-		{ name: 'Webpack', icon: MdBuild },
-		{ name: 'Babel', icon: MdBuild },
-		{ name: 'VS Code', icon: MdComputer },
-		{ name: 'Terminal', icon: MdComputer }
+	Devtools: [
+		{ name: 'Git', icon: FaGitAlt },
+		{ name: 'MacOS', icon: FaApple },
+		{ name: 'Linux', icon: FaLinux },
+		{ name: 'VS Code', icon: TbBrandVscode },
+		{ name: 'Docker', icon: FaDocker },
+		{ name: 'Terminal', icon: IoTerminal }
 	]
 };
 
