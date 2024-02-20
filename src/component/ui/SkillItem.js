@@ -12,9 +12,23 @@ const rotateAnimation = keyframes`
   }
 `;
 
+const rotateAnimation2 = keyframes`
+  from {
+    transform: rotate(0deg) translateY(-100px) rotate(0deg);
+  }
+  to {
+	transform: rotate(-360deg) translateY(-100px) rotate(360deg);
+  }
+`;
+
+
 const SkillAtom = styled.div`
   position: absolute;
   animation: ${rotateAnimation} 10s linear infinite;
+  
+  @media (max-width: 768px) {
+    animation: ${rotateAnimation2} 10s linear infinite;	
+  }
 `;
 
 const SkillIcon = styled(IconBase)`

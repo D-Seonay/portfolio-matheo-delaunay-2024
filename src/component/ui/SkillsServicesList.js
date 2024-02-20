@@ -83,7 +83,7 @@ const SkillsContainer = styled.div`
 `;
 
 const SkillTitle = styled.h2`
-  font-size: 3rem;
+  font-size: 2rem;
   color : ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 `;
 
