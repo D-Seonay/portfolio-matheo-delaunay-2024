@@ -7,6 +7,7 @@ import { IoLogoJavascript, IoTerminal } from "react-icons/io5";
 import { DiMysql } from "react-icons/di";
 import { SiAdobe } from "react-icons/si";
 import { TbBrandVscode } from "react-icons/tb";
+import {useTheme} from "../ThemeContext";
 
 
 
@@ -44,6 +45,31 @@ const skillsData = {
 	]
 };
 
+const Skills = styled.section`
+  padding: 5vh 5vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+`;
+
+const Divider = styled.hr`
+  width: 75%;
+  margin: 1rem auto;
+  border-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+`;
+
 const SkillsContainer = styled.div`
   position: relative;
   width: 400px;
@@ -57,10 +83,15 @@ const SkillsContainer = styled.div`
 `;
 
 const SkillTitle = styled.h2`
-  font-size: 24px;
+  font-size: 3rem;
+  color : ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 `;
 
+
 const SkillsService = () => {
+
+	const { theme } = useTheme();
+
 	const [categoryIndex, setCategoryIndex] = useState(0);
 	const [atomsPositions, setAtomsPositions] = useState([]);
 	const titleRef = useRef(null); // Création de la référence pour le titre
@@ -106,26 +137,36 @@ const SkillsService = () => {
 	const positions = atomsPositions.slice(0, currentCategory.length);
 
 	return (
-		<SkillsContainer>
-			<SkillTitle ref={titleRef}>
-				{Object.keys(skillsData)[categoryIndex]}
-			</SkillTitle>
+		<Skills>
+			<TitleContainer>
+				<Title theme={theme}>Skills</Title>
+				<Divider theme={theme} />
+			</TitleContainer>
+			<SkillsContainer>
+				<SkillTitle theme={theme} ref={titleRef}>
+					{Object.keys(skillsData)[categoryIndex]}
+				</SkillTitle>
 
-			{positions.map((position, index) => (
-				<DelayedSkillItem
-					key={index}
-					name={currentCategory[index].name}
-					icon={currentCategory[index].icon}
-					position={position}
-					delay={index * 1000} // Adjust the delay duration (in milliseconds)
-				/>
-			))}
-		</SkillsContainer>
+				{positions.map((position, index) => (
+					<DelayedSkillItem
+						themed={theme}
+						key={index}
+						name={currentCategory[index].name}
+						icon={currentCategory[index].icon}
+						position={position}
+						delay={index * 1000} // Adjust the delay duration (in milliseconds)
+					/>
+				))}
+			</SkillsContainer>
+		</Skills>
 	);
 };
 
 // Define a new component with delay
 const DelayedSkillItem = ({ name, icon, position, delay }) => {
+
+	const { theme } = useTheme();
+
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
@@ -139,7 +180,7 @@ const DelayedSkillItem = ({ name, icon, position, delay }) => {
 	}, [delay]);
 
 	return isVisible ? (
-		<SkillItem name={name} icon={icon} position={position} />
+		<SkillItem name={name} icon={icon} position={position} theme={theme} />
 	) : null;
 };
 

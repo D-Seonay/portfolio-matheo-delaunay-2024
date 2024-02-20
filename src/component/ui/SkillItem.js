@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { IconBase } from 'react-icons';
+import {useTheme} from "../ThemeContext";
 
 const rotateAnimation = keyframes`
   from {
@@ -18,24 +19,25 @@ const SkillAtom = styled.div`
 
 const SkillIcon = styled(IconBase)`
   font-size: 2rem;
-  color: #007bff;
+  color: rgba(0, 0, 255, 0.4);
 `;
 
 const SkillName = styled.span`
   display: block;
   font-size: 0.8rem;
-  color: #333;
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
 `;
 
 const SkillItem = ({ icon, name, position }) => {
+	const { theme } = useTheme();
 	const Icon = icon;
 	if (!position) {
 		return null; // Ne rend rien si la position n'est pas définie
 	}
 	return (
-		<SkillAtom style={{ left: `${position.x}`, top: `${position.y}` }}>
-			<SkillIcon as={Icon} />
-			<SkillName>{name}</SkillName>
+		<SkillAtom theme={theme} style={{ left: `${position.x}`, top: `${position.y}` }}>
+			<SkillIcon as={Icon} theme={theme} />
+			<SkillName theme={theme}>{name}</SkillName>
 		</SkillAtom>
 	);
 };

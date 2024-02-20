@@ -186,8 +186,8 @@ const AboutMe = () => {
 
 			</TextWithImage>
 
-			<Divider theme={theme} />
 			<SkillsServicesList />
+
 			<MyTimeline />
 			<ParallaxComponent />
 			<ContactMe />
