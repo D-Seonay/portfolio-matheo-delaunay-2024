@@ -22,7 +22,6 @@ function App() {
 						<Route path="/" element={<Works />} />
 						<Route path="/about" element={<AboutMe />} />
 						<Route path="/works" element={<Works />} />
-						<Route path="/wavy-border" element={<WavyBorder />} />
 						<Route path="*" element={<Error404Page/>} />
 						{/* Définissez les autres routes ici */}
 					</Routes>
