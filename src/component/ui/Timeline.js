@@ -216,7 +216,7 @@ const MyTimeline = () => {
 	return (
 		<TimelineContainer>
 			<TitleContainer>
-				<Title theme={theme}>Me Timeline</Title>
+				<Title theme={theme}>My Timeline</Title>
 				<Divider theme={theme} />
 			</TitleContainer>
 			<TimelineSection>

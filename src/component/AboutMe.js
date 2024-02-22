@@ -124,7 +124,7 @@ const HeroImage = styled.img`
 	  transition: 0.3s;
 	  
 	  @media (max-width: 1192px) {
-	  		width: 80vw;
+	  		width: 40vw;
 	  		margin-left: 0;
 	  		margin-top: 2rem;
 	  }
@@ -187,7 +187,6 @@ const AboutMe = () => {
 			</TextWithImage>
 
 			<SkillsServicesList />
-
 			<MyTimeline />
 			<ParallaxComponent />
 			<ContactMe />

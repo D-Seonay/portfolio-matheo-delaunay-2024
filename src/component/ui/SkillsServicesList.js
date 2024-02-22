@@ -9,13 +9,6 @@ import { SiAdobe } from "react-icons/si";
 import { TbBrandVscode } from "react-icons/tb";
 import {useTheme} from "../ThemeContext";
 
-
-
-
-
-
-
-
 const skillsData = {
 	Frontend: [
 		{ name: 'HTML', icon: FaHtml5 },
@@ -80,7 +73,7 @@ const SkillsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   @media (max-width: 768px) {
     width: 300px;
   }
@@ -114,14 +107,14 @@ const SkillsService = () => {
 			const { left, top, width, height } = titleElement.getBoundingClientRect();
 			const centerX = left + width / 2;
 			const centerY = top + height / 2;
-			const radius = 150; // Augmentez le rayon pour éloigner les éléments du titre
+			const radius = 150; // Rayon de la "planète"
 
 			const positions = [];
-			const angleStep = 90; // Angle entre chaque élément pour diviser en quatre sections
-			for (let i = 0; i < 5; i++) {
-				const angle = i * angleStep;
-				const x = centerX + radius * Math.cos((angle * Math.PI) / 180);
-				const y = centerY + radius * Math.sin((angle * Math.PI) / 180);
+			for (let i = 0; i < 10; i++) {
+				const angle = Math.random() * Math.PI * 2; // Angle aléatoire
+				const distance = Math.sqrt(Math.random()) * radius; // Distance aléatoire du centre
+				const x = centerX + distance * Math.cos(angle);
+				const y = centerY + distance * Math.sin(angle);
 				positions.push({ x, y });
 			}
 
