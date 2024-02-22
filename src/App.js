@@ -5,7 +5,6 @@ import './index.css';
 import GlassBackground from './component/ui/GlassBackground';
 import Works from './component/Works';
 import CursorTracker from "./component/ui/CursorTracker";
-import WavyBorder from "./component/ui/WavyBorder";
 import AboutMe from "./component/AboutMe";
 import Error404Page from "./component/Error404";
 import Footer from "./component/Footer";
@@ -13,7 +12,6 @@ import Footer from "./component/Footer";
 function App() {
 	return (
 		<>
-
 			<GlassBackground>
 				<Router>
 					<Navbar />
@@ -23,7 +21,6 @@ function App() {
 						<Route path="/about" element={<AboutMe />} />
 						<Route path="/works" element={<Works />} />
 						<Route path="*" element={<Error404Page/>} />
-						{/* Définissez les autres routes ici */}
 					</Routes>
 					<Footer />
 				</Router>
