@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import styled from "styled-components";
 import Image1 from '../img/1.jpg';
 import Image2 from '../img/2.jpg';
 import Image3 from '../img/3.jpg';
+import {useTheme} from "./ThemeContext";
 
 const EmblaMain = styled.div`
   display: flex;
@@ -101,9 +102,6 @@ const EmblaSlideLink = styled.a`
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease-in-out;
-  &:hover {
-    color: #ff0000;
-  }
 `;
 
 const ScrollText = styled.p`
@@ -111,11 +109,21 @@ const ScrollText = styled.p`
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  color: #000;
+  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   font-size: 0.5rem;
   margin-bottom: 5rem;
   opacity: 1;
     transition: opacity 1s ease;
+`;
+
+const ProgressBar = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  transition: width 0.3s ease; // Ajout d'une transition pour une animation fluide
 `;
 
 export function EmblaCarousel() {
@@ -153,6 +161,12 @@ export function EmblaCarousel() {
       if (scrollText) {
         scrollText.style.opacity = shouldHideScrollText ? '0' : '1';
       }
+
+      // Mettre à jour la largeur de la barre de progression
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = `${currentScrollProgress * 100}%`;
+      }
     }
   };
 
@@ -161,53 +175,38 @@ export function EmblaCarousel() {
     return () => emblaApi && emblaApi.off('scroll', handleScroll);
   }, [emblaApi]);
 
+  const { theme } = useTheme();
+
   return (
       <EmblaMain>
         <Embla ref={emblaRef}>
           <EmblaContainer>
             <EmblaSlide>
+              <EmblaSlideImage src={Image1} alt="Image 1" />
               <EmblaContent>
-                <EmblaSlideImage src={Image1} alt="Slide 1" />
                 <EmblaSlideTitle>Slide 1</EmblaSlideTitle>
-                <EmblaSlideLink href="https://www.google.com" target="_blank">
-                  Open project
-                </EmblaSlideLink>
+                <EmblaSlideLink href="#">Lien vers le projet</EmblaSlideLink>
               </EmblaContent>
             </EmblaSlide>
-
             <EmblaSlide>
-                <EmblaContent>
-                    <EmblaSlideImage src={Image2} alt="Slide 2" />
-                    <EmblaSlideTitle>Slide 2</EmblaSlideTitle>
-                    <EmblaSlideLink href="https://www.google.com" target="_blank">
-                      Open project
-                    </EmblaSlideLink>
-                </EmblaContent>
+              <EmblaSlideImage src={Image2} alt="Image 2" />
+              <EmblaContent>
+                <EmblaSlideTitle>Slide 2</EmblaSlideTitle>
+                <EmblaSlideLink href="#">Lien vers le projet</EmblaSlideLink>
+              </EmblaContent>
             </EmblaSlide>
-
             <EmblaSlide>
-                <EmblaContent>
-                    <EmblaSlideImage src={Image3} alt="Slide 3" />
-                    <EmblaSlideTitle>Slide 3</EmblaSlideTitle>
-                    <EmblaSlideLink href="https://www.google.com" target="_blank">
-                      Open project
-                    </EmblaSlideLink>
-                </EmblaContent>
-            </EmblaSlide>
-
-            <EmblaSlide>
-                <EmblaContent>
-                    <EmblaSlideImage src={Image1} alt="Slide 1" />
-                    <EmblaSlideTitle>Slide 4</EmblaSlideTitle>
-                    <EmblaSlideLink href="https://www.google.com" target="_blank">
-                      Open project
-                    </EmblaSlideLink>
-                </EmblaContent>
+              <EmblaSlideImage src={Image3} alt="Image 3" />
+              <EmblaContent>
+                <EmblaSlideTitle>Slide 3</EmblaSlideTitle>
+                <EmblaSlideLink href="#">Lien vers le projet</EmblaSlideLink>
+              </EmblaContent>
             </EmblaSlide>
           </EmblaContainer>
         </Embla>
 
-        <ScrollText id="scrollText">( SCROLL DOWN )</ScrollText>
+        <ScrollText theme={theme} id="scrollText">( SCROLL DOWN )</ScrollText>
+        <ProgressBar theme={theme} id="progressBar" />
       </EmblaMain>
   );
 }
