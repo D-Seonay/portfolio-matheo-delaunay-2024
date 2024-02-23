@@ -129,6 +129,7 @@ const ProgressBar = styled.div`
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const scrolling = useRef(false);
+  const touchStart = useRef(0); // Référence pour suivre le point de contact initial
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -147,9 +148,35 @@ export function EmblaCarousel() {
       }
     };
 
+    const handleTouchStart = (e) => {
+      touchStart.current = e.touches[0].clientY; // Enregistrer la position de départ du toucher
+    };
+
+    const handleTouchEnd = (e) => {
+      if (touchStart.current - e.changedTouches[0].clientY > 50) {
+        // Si le mouvement vers le haut est supérieur à 50 pixels, faire défiler vers le bas
+        if (emblaApi) {
+          emblaApi.scrollNext();
+        }
+      } else if (e.changedTouches[0].clientY - touchStart.current > 50) {
+        // Si le mouvement vers le bas est supérieur à 50 pixels, faire défiler vers le haut
+        if (emblaApi) {
+          emblaApi.scrollPrev();
+        }
+      }
+    };
+
     window.addEventListener('wheel', handleWheel);
-    return () => window.removeEventListener('wheel', handleWheel);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
   }, [emblaApi]);
+
 
   const handleScroll = () => {
     if (emblaApi) {
