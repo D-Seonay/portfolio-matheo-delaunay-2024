@@ -47,6 +47,11 @@ const EmblaSlide = styled.div`
   padding: 10rem;
   align-items: center;
   transition: opacity 0.5s ease; /* Ajout d'une transition pour l'opacité des slides */
+  
+    @media (max-width: 768px) {
+    padding: 2rem;
+    
+    }
 `;
 
 
@@ -61,10 +66,15 @@ const EmblaContent = styled.div`
 `;
 
 const EmblaSlideTitle = styled.h2`
-  font-size: 3rem;
+  font-size: 5rem;
   color: #fff;
   text-align: center;
   margin-bottom: 2rem;
+  
+    @media (max-width: 768px) {
+    font-size: 3rem;
+    
+    }
 `;
 
 
@@ -80,12 +90,16 @@ const EmblaSlideImage = styled.img`
   max-height: 60vh;
   margin: 0 auto;
   filter: brightness(50%);
+  
+    @media (max-width: 768px) {
+    width: 100vw;
+    }
 `;
 
 const EmblaSlideLink = styled.a`
   color: #fff;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   transition: color 0.3s ease-in-out;
   &:hover {
     color: #ff0000;
@@ -156,7 +170,7 @@ export function EmblaCarousel() {
                 <EmblaSlideImage src={Image1} alt="Slide 1" />
                 <EmblaSlideTitle>Slide 1</EmblaSlideTitle>
                 <EmblaSlideLink href="https://www.google.com" target="_blank">
-                  Lien vers Google
+                  Open project
                 </EmblaSlideLink>
               </EmblaContent>
             </EmblaSlide>
@@ -166,7 +180,7 @@ export function EmblaCarousel() {
                     <EmblaSlideImage src={Image2} alt="Slide 2" />
                     <EmblaSlideTitle>Slide 2</EmblaSlideTitle>
                     <EmblaSlideLink href="https://www.google.com" target="_blank">
-                    Lien vers Google
+                      Open project
                     </EmblaSlideLink>
                 </EmblaContent>
             </EmblaSlide>
@@ -176,7 +190,7 @@ export function EmblaCarousel() {
                     <EmblaSlideImage src={Image3} alt="Slide 3" />
                     <EmblaSlideTitle>Slide 3</EmblaSlideTitle>
                     <EmblaSlideLink href="https://www.google.com" target="_blank">
-                    Lien vers Google
+                      Open project
                     </EmblaSlideLink>
                 </EmblaContent>
             </EmblaSlide>
@@ -186,7 +200,7 @@ export function EmblaCarousel() {
                     <EmblaSlideImage src={Image1} alt="Slide 1" />
                     <EmblaSlideTitle>Slide 4</EmblaSlideTitle>
                     <EmblaSlideLink href="https://www.google.com" target="_blank">
-                    Lien vers Google
+                      Open project
                     </EmblaSlideLink>
                 </EmblaContent>
             </EmblaSlide>
