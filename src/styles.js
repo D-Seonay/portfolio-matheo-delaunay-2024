@@ -159,19 +159,6 @@ export const ToggleButton = styled.button`
   
 `;
 
-export const ProgressBar = styled.div`
-  position: fixed;
-  left: 5%;
-  bottom: 5px;
-	width: 90%;
-  height: 10px;
-  background-color: ${props => props.theme === 'light' ? '#DADADA' : '#191919'};
-  border-radius: 5px;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-
-`;
-
-
 export const ProgressBarFill = styled.div`
   height: 100%;
   background-color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
@@ -235,4 +222,128 @@ export const OpenProjectLink = styled.a`
   text-decoration: none;
   font-weight: bold;
   margin-top: 10px;
+`;
+
+
+
+
+
+export const EmblaMain = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+`;
+
+export const Embla = styled.div`
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 0;
+`;
+
+export const EmblaContainer = styled.div`
+  display: flex;
+  transition: transform 0.3s ease; /* Ajout d'une transition pour le déplacement des slides */
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+`;
+
+export const EmblaSlide = styled.div`
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10rem;
+  align-items: center;
+  transition: opacity 0.5s ease; /* Ajout d'une transition pour l'opacité des slides */
+  
+    @media (max-width: 768px) {
+    padding: 2rem;
+    
+    }
+`;
+
+
+export const EmblaContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+`;
+
+export const EmblaSlideTitle = styled.h2`
+  font-size: 5rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  
+    @media (max-width: 768px) {
+    font-size: 3rem;
+    
+    }
+`;
+
+
+
+export const EmblaSlideImage = styled.img`
+  position: absolute;
+  z-index: -1;
+  width: 60vw;
+  border-radius: 0.5rem;
+  height: 100%;
+  object-fit: cover;
+  max-width: 80vw;
+  max-height: 60vh;
+  margin: 0 auto;
+    @media (max-width: 768px) {
+    width: 100vw;
+    }
+`;
+
+export const EmblaSlideLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+`;
+
+export const ScrollText = styled.p`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  font-size: 0.5rem;
+  margin-bottom: 5rem;
+  opacity: 1;
+    transition: opacity 1s ease;
+`;
+
+
+export const ProgressBar = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 2px;
+  width: 0;
+  background-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+  transition: width 0.3s ease; // Ajout d'une transition pour une animation fluide
 `;
