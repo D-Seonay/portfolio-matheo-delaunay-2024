@@ -1,6 +1,6 @@
-import Phototheque from './img/projets/phototheque-de-chatons.png';
-import CardFlipRevise from './img/projets/card-flip-revise.png';
-import Pokedex from './img/projets/pokedex.png';
-import GestionnaireDeBibliotheque from './img/projets/gestionnaire-de-bibliotheque.png';
+import Phototheque from './img/projets/phototheque-de-chatons.webp';
+import CardFlipRevise from './img/projets/card-flip-revise.webp';
+import Pokedex from './img/projets/pokedex.webp';
+import GestionnaireDeBibliotheque from './img/projets/gestionnaire-de-bibliotheque.webp';
 
 export { Phototheque, CardFlipRevise, Pokedex, GestionnaireDeBibliotheque };
