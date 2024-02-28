@@ -289,7 +289,7 @@ export const EmblaContent = styled.div`
 `;
 
 export const EmblaSlideTitle = styled.h2`
-  font-size: 5rem;
+  font-size: 4rem;
   color: #fff;
   text-align: center;
   margin-bottom: 2rem;
