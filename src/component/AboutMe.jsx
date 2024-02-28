@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useTheme} from "./ThemeContext";
-import WorkPreview1 from "../img/1.jpg";
-import WorkPreview2 from "../img/2-min.png";
-import WorkPreview3 from "../img/5-min.png";
+import { slidesData } from './slidesData'; // Importez la liste des données des projets
 import HeroImg from "../img/MatheoDELAUNAY.png"
 import {ParallaxProvider} from "react-scroll-parallax";
 import ContactMe from "./ui/ContactMe";
@@ -54,9 +52,10 @@ const WorkPreviewLink = styled.a`
 `;
 
 const WorkPreviewImage = styled.img`
-  width: 10vw; /* Taille de l'aperçu du travail */
+  width: 12vw; /* Taille de l'aperçu du travail */
   height: auto; /* Maintenir le ratio hauteur-largeur */
   display: inline-block; /* Aligner l'image horizontalement avec le texte */
+  filter: grayscale(100%); 
 `;
 
 
@@ -74,6 +73,7 @@ const TextWithImage = styled.div`
   height: 100vh;
   text-align: center;
   padding: 0 5rem;
+  
   
   @media (max-width: 1192px) {
     flex-direction: column;
@@ -134,34 +134,30 @@ const HeroImage = styled.img`
 const AboutMe = () => {
 
 	const { theme } = useTheme();
-	const [currentWorkPreview, setCurrentWorkPreview] = useState(WorkPreview1);
+		const [currentWorkPreview, setCurrentWorkPreview] = useState(slidesData[0]); // Commencez avec le premier projet
 
-	useEffect(() => {
-		const intervalId = setInterval(() => {
-			// Changez l'image de preview toutes les 10 secondes
-			setCurrentWorkPreview((prevImage) => {
-				if (prevImage === WorkPreview1) {
-					return WorkPreview2;
-				} else if (prevImage === WorkPreview2) {
-					return WorkPreview3;
-				} else {
-					// Retournez à la première image si nous sommes à la troisième
-					return WorkPreview1;
-				}
-			});
-		}, 2000);
+		useEffect(() => {
+			const intervalId = setInterval(() => {
+				// Changez le projet de preview toutes les 10 secondes
+				setCurrentWorkPreview((prevProject) => {
+					const currentIndex = slidesData.findIndex((slide) => slide === prevProject); // Trouvez l'index du projet actuel dans la liste
+					const nextIndex = (currentIndex + 1) % slidesData.length; // Calculez l'index du projet suivant en prenant en compte le rebouclage
+					return slidesData[nextIndex]; // Récupérez le projet suivant dans la liste
+				});
+			}, 10000); // Interval de 10 secondes
 
-		// Nettoyez l'intervalle lorsqu'on quitte le composant
-		return () => clearInterval(intervalId);
-	}, []); // Videz le tableau de dépendances pour que cela se produise uniquement une fois
+			// Nettoyez l'intervalle lorsqu'on quitte le composant
+			return () => clearInterval(intervalId);
+		}, []);
+
 
 	return (
 		<ParallaxProvider>
 			<AboutMeContainer theme={theme}>
 				<Title theme={theme}>
 					STUDENT
-					<WorkPreviewLink href="/work" theme={theme}>
-						<WorkPreviewImage src={currentWorkPreview} alt="Work Preview"  theme={theme}/>
+					<WorkPreviewLink href={currentWorkPreview.link}  rel="noopener noreferrer" theme={theme}>
+						<WorkPreviewImage src={currentWorkPreview.img} alt="Work Preview"  theme={theme}/>
 					</WorkPreviewLink>
 					<br />
 					& WEB DEV
@@ -193,5 +189,6 @@ const AboutMe = () => {
 		</ParallaxProvider>
 	);
 };
+
 
 export default AboutMe;
