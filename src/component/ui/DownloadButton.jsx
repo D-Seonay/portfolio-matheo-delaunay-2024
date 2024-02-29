@@ -27,7 +27,6 @@ const DownloadButton = styled.a`
   color: #fff;
   text-decoration: none; /* Supprime la soulignement par défaut sur les liens */
   border-radius: 5px;
-  cursor: pointer;
   outline: none;
   overflow: hidden; /* Masque le contenu qui dépasse */
   min-width: 200px; /* Largeur minimale du bouton */
