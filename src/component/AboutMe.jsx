@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useTheme} from "./ThemeContext";
-import { slidesData } from './slidesData'; // Importez la liste des données des projets
-import HeroImg from "../img/MatheoDELAUNAY.png"
+import { slidesData } from './slidesData';
+import {Hero} from "../Images";
 import {ParallaxProvider} from "react-scroll-parallax";
 import ContactMe from "./ui/ContactMe";
 import styled from "styled-components";
@@ -178,7 +178,7 @@ const AboutMe = () => {
 				</SectionTextButton>
 
 
-				<HeroImage src={HeroImg} alt="Hero Image" />
+				<HeroImage src={Hero} alt="Hero Image" />
 
 			</TextWithImage>
 
