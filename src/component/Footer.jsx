@@ -16,6 +16,7 @@ const FooterContainer = styled.footer`
 	  bottom: 0;
 	  width: 100vw;
 	  margin-top: 2rem;
+      z-index: 100;
 `;
 
 const Link = styled.a`
