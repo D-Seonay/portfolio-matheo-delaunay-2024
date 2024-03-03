@@ -86,6 +86,7 @@ export const NavbarStyle = styled.nav`
   padding: 1rem 2rem;
   position: fixed;
   width: 100vw;
+  top: 0px;
   z-index: 2;
 `;
 
@@ -346,4 +347,12 @@ export const ProgressBar = styled.div`
   width: 0;
   background-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   transition: width 0.3s ease; // Ajout d'une transition pour une animation fluide
+`;
+
+
+export const Divider = styled.hr`
+  width: 75%;
+  margin: 1rem auto;
+  border-color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
+
 `;
