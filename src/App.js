@@ -8,6 +8,9 @@ import CursorTracker from "./component/ui/CursorTracker";
 import AboutMe from "./component/AboutMe";
 import Error404Page from "./component/Error404";
 import Footer from "./component/Footer";
+import ProjectDetailPage from './component/ProjectDetailPage';
+
+
 
 function App() {
 	return (
@@ -20,10 +23,9 @@ function App() {
 						<Route path="/" element={<Works />} />
 						<Route path="/about" element={<AboutMe />} />
 						<Route path="/works/*" element={<Works />} />
-						<Route path="/works/Phototheque" element={<Works />} />
-							<Route path="/works/CardFlipRevise" element={<Works />} />
-						<Route path="/works/Pokedex" element={<Works />} />
-						<Route path="/works/GestionnaireDeBibliotheque" element={<Works />} />
+						{/*  Route for each project */}
+						<Route path="/project/:id" element={<ProjectDetailPage />} />
+
 						<Route path="*" element={<Error404Page/>} />
 					</Routes>
 					<Footer />
