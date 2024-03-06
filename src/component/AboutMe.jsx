@@ -26,7 +26,7 @@ const Title = styled.h1`
   line-height: 0.7; 
   
   @media (max-width: 768px) {
-    font-size: 6vw; 
+    font-size: 14vw; 
     line-height: 1;
   }
 `;
@@ -56,6 +56,10 @@ const WorkPreviewImage = styled.img`
   height: auto; /* Maintenir le ratio hauteur-largeur */
   display: inline-block; /* Aligner l'image horizontalement avec le texte */
   filter: grayscale(100%); 
+  
+  @media (max-width: 768px) {
+    width: 16vw; /* Taille de l'aperçu du travail sur mobile */
+  }
 `;
 
 
@@ -124,7 +128,7 @@ const HeroImage = styled.img`
 	  transition: 0.3s;
 	  
 	  @media (max-width: 1192px) {
-	  		width: 40vw;
+	  		width: 80vw;
 	  		margin-left: 0;
 	  		margin-top: 2rem;
 	  }
