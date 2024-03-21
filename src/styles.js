@@ -129,6 +129,7 @@ export const NavbarLink = styled.div`
   
   a.active {
     text-decoration: line-through;
+    pointer-events: none; /* Désactive les clics pour les liens actifs */
   }
 `;
 
