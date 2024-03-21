@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { useTheme } from "../ThemeContext";
-
 const scaleAnimation = css`
   from {
     transform: scale(1);

@@ -6,6 +6,9 @@ import logoEPSI from "../../img/logo-timeline/LOGO_EPSI.png";
 import logoLaMennais from "../../img/logo-timeline/LOGO_LaMennais.png";
 import logoStFelix from "../../img/logo-timeline/LOGO_StFelix.png";
 import LogoNoBullShitTech from "../../img/logo-timeline/LOGO_NoBullShitTech.svg";
+import LogoDCHIT from "../../img/logo-timeline/LOGO_DCHIT.png";
+import RapportNoBullShitTech from "../../pdf/RapportDeStageNoBullShit.pdf";
+import RapportDCHIT from "../../pdf/rapport-de-stage-dch-it.pdf";
 
 
 const TimelineContainer = styled.div`
@@ -128,8 +131,25 @@ const Text = styled.p`
   font-size: 1rem;
 `;
 
+const LowContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+`;
+
+const Rapport = styled.a`
+  color: ${props => (props.theme === 'light' ? '#191919' : '#DADADA')};
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+  
+  &:hover {
+    color: ${props => (props.theme === 'light' ? '#000' : '#FFF')};
+  }
+`;
+
 const LogoContainer = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -167,11 +187,20 @@ const MyTimeline = () => {
 	const [visibleSections, setVisibleSections] = useState([]);
 	const events = [
 		{
+			title: 'Stage DCH-IT Développeur 360°',
+			date: 'Janvier 2024 - Février 2024',
+			description: "Développement web, design, gestion de projet, DevOps.",
+			logo: LogoDCHIT,
+			link: '',
+			rapport: RapportDCHIT,
+		},
+		{
 			title: 'Stage en Développement Web',
 			date: 'Mai 2023 - Juin 2023',
 			description: "Stage chez NoBullShitTech, une entreprise de développement web.",
 			logo: LogoNoBullShitTech,
 			link: 'https://engineers.getnobullshit.com/',
+			rapport: RapportNoBullShitTech,
 		},
 		{
 			title: 'Études en Informatique chez EPSI Nantes',
@@ -179,6 +208,7 @@ const MyTimeline = () => {
 			description: "École d'ingénieur en informatique située à Nantes, post-bac à bac+5.",
 			logo: logoEPSI,
 			link: 'https://www.epsi.fr/',
+			rapport: '',
 		},
 		{
 			title: 'Alternance au lycée La Mennais',
@@ -186,6 +216,7 @@ const MyTimeline = () => {
 			description: "Maintenance informatique et gestion de parc.",
 			logo: logoLaMennais,
 			link: 'https://www.lycee-lamennais.fr/',
+			rapport: '',
 		},
 		{
 			title: 'Bachelor professionnel en SN option RISC',
@@ -193,6 +224,7 @@ const MyTimeline = () => {
 			description: "Bac en Systèmes Numériques option Réseaux Informatiques et Systèmes Communicants à St Félix La Salle.",
 			logo: logoStFelix,
 			link: 'https://stfelixlasalle.fr/',
+			rapport: '',
 		},
 	];
 
@@ -239,15 +271,27 @@ const MyTimeline = () => {
 									<TitleH2 theme={theme}>{event.title}</TitleH2>
 									<Text theme={theme}>{event.description}</Text>
 
-									<LogoContainer>
-										{event.link ? (
-											<LinkA href={event.link} target="_blank" rel="noopener noreferrer">
-												<LogoImage src={event.logo} alt={event.title} />
-											</LinkA>
+									<LowContainer>
+
+										{event.rapport ? (
+											<Rapport theme={theme} href={event.rapport} target="_blank" rel="noopener noreferrer">
+												Lien vers le rapport
+											</Rapport>
 										) : (
-											<LogoImage src={event.logo} alt={event.title} />
+											''
 										)}
-									</LogoContainer>
+
+										<LogoContainer>
+											{event.link ? (
+												<LinkA href={event.link} target="_blank" rel="noopener noreferrer">
+													<LogoImage src={event.logo} alt={event.title} />
+												</LinkA>
+											) : (
+												<LogoImage src={event.logo} alt={event.title} />
+											)}
+										</LogoContainer>
+
+									</LowContainer>
 
 								</TimelineContent>
 							</TimelineListItem>

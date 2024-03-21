@@ -16,6 +16,7 @@ const skillsData = {
 		{ name: 'JavaScript', icon: IoLogoJavascript },
 		{ name: 'React', icon: FaReact },
 		{ name: 'Vue.js', icon: FaVuejs }
+
 	],
 	Backend: [
 		{ name: 'Node.js', icon: FaNode },
@@ -110,15 +111,14 @@ const SkillsService = () => {
 			const radius = 150; // Rayon de la "planète"
 
 			const positions = [];
-			for (let i = 0; i < 10; i++) {
-				const angle = Math.random() * Math.PI * 2; // Angle aléatoire
+			for (let i = 0; i < 15; i++) {
+				const angle = Math.random() * Math.PI * 3; // Angle aléatoire
 				const distance = Math.sqrt(Math.random()) * radius; // Distance aléatoire du centre
 				const x = centerX + distance * Math.cos(angle);
 				const y = centerY + distance * Math.sin(angle);
 				positions.push({ x, y });
 			}
 
-			console.log(positions); // Afficher les positions générées dans la console
 
 			setAtomsPositions(positions);
 		}
