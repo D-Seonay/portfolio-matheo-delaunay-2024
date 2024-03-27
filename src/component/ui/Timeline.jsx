@@ -7,8 +7,8 @@ import logoLaMennais from "../../img/logo-timeline/LOGO_LaMennais.png";
 import logoStFelix from "../../img/logo-timeline/LOGO_StFelix.png";
 import LogoNoBullShitTech from "../../img/logo-timeline/LOGO_NoBullShitTech.svg";
 import LogoDCHIT from "../../img/logo-timeline/LOGO_DCHIT.png";
-import RapportNoBullShitTech from "../../pdf/RapportDeStageNoBullShit.pdf";
-import RapportDCHIT from "../../pdf/rapport-de-stage-dch-it.pdf";
+import ReportNoBullShitTech from "../../pdf/RapportDeStageNoBullShit.pdf";
+import ReportDCHIT from "../../pdf/rapport-de-stage-dch-it.pdf";
 
 
 const TimelineContainer = styled.div`
@@ -187,44 +187,44 @@ const MyTimeline = () => {
 	const [visibleSections, setVisibleSections] = useState([]);
 	const events = [
 		{
-			title: 'Stage DCH-IT Développeur 360°',
-			date: 'Janvier 2024 - Février 2024',
-			description: "Développement web, design, gestion de projet, DevOps.",
+			title: 'Internship at DCH-IT as a 360° Developer',
+			date: 'January 2024 - February 2024',
+			description: "Web development, design, project management, DevOps.",
 			logo: LogoDCHIT,
 			link: '',
-			rapport: RapportDCHIT,
+			report: ReportDCHIT,
 		},
 		{
-			title: 'Stage en Développement Web',
-			date: 'Mai 2023 - Juin 2023',
-			description: "Stage chez NoBullShitTech, une entreprise de développement web.",
+			title: 'Web Development Internship',
+			date: 'May 2023 - June 2023',
+			description: "Internship at NoBullShitTech, a web development company.",
 			logo: LogoNoBullShitTech,
 			link: 'https://engineers.getnobullshit.com/',
-			rapport: RapportNoBullShitTech,
+			report: ReportNoBullShitTech,
 		},
 		{
-			title: 'Études en Informatique chez EPSI Nantes',
-			date: 'Septembre 2022 - Présent',
-			description: "École d'ingénieur en informatique située à Nantes, post-bac à bac+5.",
+			title: 'Computer Science Studies at EPSI Nantes',
+			date: 'September 2022 - Present',
+			description: "Engineering school in computer science located in Nantes, post-baccalaureate to bac+5.",
 			logo: logoEPSI,
 			link: 'https://www.epsi.fr/',
-			rapport: '',
+			report: '',
 		},
 		{
-			title: 'Alternance au lycée La Mennais',
-			date: 'Novembre 2020 - Août 2022',
-			description: "Maintenance informatique et gestion de parc.",
+			title: 'Apprenticeship at La Mennais High School',
+			date: 'November 2020 - August 2022',
+			description: "Computer maintenance and fleet management.",
 			logo: logoLaMennais,
 			link: 'https://www.lycee-lamennais.fr/',
-			rapport: '',
+			report: '',
 		},
 		{
-			title: 'Bachelor professionnel en SN option RISC',
-			date: 'Septembre 2019 - Août 2022',
-			description: "Bac en Systèmes Numériques option Réseaux Informatiques et Systèmes Communicants à St Félix La Salle.",
+			title: 'Professional Bachelor’s Degree in SN with RISC option',
+			date: 'September 2019 - August 2022',
+			description: "Bachelor's degree in Digital Systems with a specialization in Computer Networks and Communicating Systems at St Félix La Salle.",
 			logo: logoStFelix,
 			link: 'https://stfelixlasalle.fr/',
-			rapport: '',
+			report: '',
 		},
 	];
 
@@ -273,8 +273,8 @@ const MyTimeline = () => {
 
 									<LowContainer>
 
-										{event.rapport ? (
-											<Rapport theme={theme} href={event.rapport} target="_blank" rel="noopener noreferrer">
+										{event.report ? (
+											<Rapport theme={theme} href={event.report} target="_blank" rel="noopener noreferrer">
 												Lien vers le rapport
 											</Rapport>
 										) : (
