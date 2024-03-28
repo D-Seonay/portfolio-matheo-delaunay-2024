@@ -2,6 +2,10 @@
 
 Ce projet est un portfolio personnel développé avec React.js. Il a pour but de présenter mes compétences, mes projets et mon parcours professionnel.
 
+## Preview 
+
+![Preview Image](src/img/preview/preview.png)
+
 ## Design
 
 Pour la partie design, je me suis inspiré du style de la créatrice de contenu et développeuse freelance [Katy_v4](https://www.cathydolle.com/), que vous pouvez retrouver sur son site web. 
