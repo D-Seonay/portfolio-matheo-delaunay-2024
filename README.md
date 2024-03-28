@@ -4,7 +4,7 @@ Ce projet est un portfolio personnel développé avec React.js. Il a pour but de
 
 ## Design
 
-Pour la parti design je me suis inspiré du design de la créaterice de contenu et develoopeur freelance [Katy_v4](https://www.cathydolle.com/)
+Pour la partie design, je me suis inspiré du style de la créatrice de contenu et développeuse freelance [Katy_v4](https://www.cathydolle.com/), que vous pouvez retrouver sur son site web. 
 
 
 
