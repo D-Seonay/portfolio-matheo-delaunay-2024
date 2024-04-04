@@ -16,35 +16,35 @@ const projects = [
 ];
 
 const SliderContainer = styled(animated.div)`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  max-width: 600px;
-  overflow: hidden;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80vw;
+	max-width: 600px;
+	overflow: hidden;
 `;
 
 const Slide = styled(animated.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  will-change: transform;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	will-change: transform;
 `;
 
 const ProjectImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 `;
 
 const ProjectTitle = styled.h3`
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	color: white;
 `;
 
 const Slider = () => {

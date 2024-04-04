@@ -163,7 +163,7 @@ const DateText = styled.p`
 `;
 
 const CVLink = styled.a`
-  	display: flex;
+  display: flex;
 	align-items: center;
   
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
