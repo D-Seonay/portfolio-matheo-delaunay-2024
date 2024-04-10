@@ -60,7 +60,6 @@ const ProjectDescription = styled.div`
     padding: 1rem;
     height: 100vh;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, 0.3);
     grid-template-columns: 1fr; /* Pour un seul colonne sur des écrans plus petits */
   }
 `;
@@ -88,7 +87,6 @@ const ProjectContainerData = styled.div`
     padding: 1rem;
     height: 100vh;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, 0.3);
     grid-template-columns: 1fr; /* Pour un seul colonne sur des écrans plus petits */
   }
 `;
@@ -110,7 +108,6 @@ const ProjectDescriptionTitleH4 = styled.div`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
-    width: 80vw;
   }
 `;
 
@@ -150,7 +147,6 @@ const ProjetDate = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
-    width: 80vw;
   }
 `;
 
@@ -162,7 +158,6 @@ const ProjectRole = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
-    width: 80vw;
   }
 `;
 
@@ -174,7 +169,6 @@ const ProjectTech = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
-    width: 80vw;
   }
 `;
 
@@ -191,7 +185,6 @@ const ButtonSection = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-    width: 80vw;
   }
 `;
 
@@ -210,6 +203,7 @@ const NextProjectPreview = styled(Link)`
 const NextProjectImage = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const NextProjectTitle = styled.h2`
