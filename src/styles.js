@@ -55,6 +55,7 @@ export const Aura = styled.div`
 
 export const Title = styled.h1`
   font-family: 'Gallery', sans-serif;
+  mix-blend-mode: difference;
   color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
   font-size: 2.5rem;
   margin-bottom: 1rem;	
@@ -103,10 +104,11 @@ transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 `;
 
-  
+
 
 export const Icons = styled.span`
   display: flex;
+  mix-blend-mode: difference;
   color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
   align-items: center;
   justify-content: center;

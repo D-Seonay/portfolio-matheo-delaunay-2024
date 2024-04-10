@@ -12,6 +12,7 @@ const projectsData = [
 		tech: 'React, Firebase',
 		image: Phototheque,
 		link: '',
+		linkGithub: 'https://github.com/D-Seonay/chatons-bdd',
 		// Autres détails du projet
 	},
 	{
@@ -24,6 +25,7 @@ const projectsData = [
 		tech: 'Node.js',
 		image: CardFlipRevise,
 		link: '',
+		linkGithub: '',
 		// Autres détails du projet
 	},
 
@@ -37,6 +39,7 @@ const projectsData = [
 		tech: 'Node.js, PokeAPI',
 		image: Pokedex,
 		link: 'https://chatonsphototheque-q26cn.ondigitalocean.app/',
+		linkGithub: 'https://github.com/D-Seonay/pokedex',
 		// Autres détails du projet
 	},
 	{
@@ -49,6 +52,7 @@ const projectsData = [
 		tech: 'Python',
 		image: GestionnaireDeBibliotheque,
 		link: '',
+		linkGithub: 'https://github.com/D-Seonay/gestionnaire-de-bibliotheque',
 		// Autres détails du projet
 	}
 	// Ajoutez d'autres projets ici

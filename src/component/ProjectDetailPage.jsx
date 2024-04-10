@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import projectsData from '../data/projectsData'; // Importez vos données de projet
 import { Divider } from '../styles';
 import { useTheme } from "./ThemeContext";
+import Button from './ui/Button';
 
 // Styles avec styled-components
 const ProjectContainer = styled.div`
@@ -35,20 +36,21 @@ const ProjectImage = styled.img`
   border-radius: 10px;
   z-index: -1;
   filter: brightness(0.5);
+  object-fit: cover;
 `;
 
 const ProjectDescription = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Vous n'avez pas besoin de flex-direction avec grid */
   align-items: start;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   width: 90vw;
   z-index: 1;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(100px);
 
   @media (max-width: 768px) {
+    /* Styles pour les écrans de petite taille */
     width: 100vw;
     align-items: center;
     justify-content: center;
@@ -59,8 +61,38 @@ const ProjectDescription = styled.div`
     height: 100vh;
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0.3);
+    grid-template-columns: 1fr; /* Pour un seul colonne sur des écrans plus petits */
   }
 `;
+
+const ProjectContainerData = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Définit deux colonnes avec des proportions 1:1 */
+  gap: 1rem; /* Ajoute un espacement entre les éléments de la grille */
+  flex-direction: column; /* Vous n'avez pas besoin de flex-direction avec grid */
+  align-items: start;
+  padding: 2rem;
+  border-radius: 0 0 10px 10px;
+  width: 90vw;
+  z-index: 1;
+  backdrop-filter: blur(100px);
+
+  @media (max-width: 768px) {
+    /* Styles pour les écrans de petite taille */
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+    height: 100vh;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    grid-template-columns: 1fr; /* Pour un seul colonne sur des écrans plus petits */
+  }
+`;
+
 
 const ProjectTitle = styled.h2`
   color : ${props => (props.theme === 'dark' ? '#fff' : '#000')};
@@ -72,7 +104,7 @@ const ProjectTitle = styled.h2`
 `;
 
 const ProjectDescriptionTitleH4 = styled.div`
-  color: #fff;
+  color: #191919;
   font-size: 1.5rem;
   margin-bottom: 10px;
 
@@ -83,7 +115,7 @@ const ProjectDescriptionTitleH4 = styled.div`
 `;
 
 const ProjectDescriptionText = styled.p`
-  color: #fff;
+  color: #191919;
   font-size: 1rem;
   margin-bottom: 10px;
 
@@ -93,7 +125,7 @@ const ProjectDescriptionText = styled.p`
 `;
 
 const ProjectDescriptionLink = styled.a`
-  color: #fff;
+  color: #191919;
   font-size: 1rem;
   text-decoration: none;
   z-index: 10;
@@ -146,6 +178,23 @@ const ProjectTech = styled.div`
   }
 `;
 
+const ButtonSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  width: 80vw;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 80vw;
+  }
+`;
+
 const NextProjectPreview = styled(Link)`
   width: 100vw; // Ajustez la taille selon vos besoins
   height: 100vh; // Ajustez la taille selon vos besoins
@@ -175,7 +224,7 @@ const NextProjectDescription = styled.p`
 `;
 
 
-const buttonLinkGithub = styled(Link)`
+const ButtonLinkGithub = styled(Link)`
   color: #fff;
   font-size: 1rem;
   text-decoration: none;
@@ -186,6 +235,7 @@ const buttonLinkGithub = styled(Link)`
     text-decoration: inherit;
   }
 `;
+
 
 const ProjectPage = () => {
 	const { id } = useParams(); // Récupérer l'ID de l'URL
@@ -212,24 +262,28 @@ const ProjectPage = () => {
               <ProjectDescription>
                 
                 <ProjectDescriptionTitleH4 theme={theme}>{project.description}</ProjectDescriptionTitleH4>
-                <ProjectDescriptionLink theme={theme} href={project ? project.link : ''} target="_blank" rel="noreferrer"> Voir le projet</ProjectDescriptionLink>
-                <buttonLinkGithub theme={theme} href={project ? project.linkGithub : ''} target="_blank" rel="noreferrer"> Voir le code source</buttonLinkGithub>
+                <ProjectContainerData>
+                  <ProjetDate>
+                    <ProjectDescriptionTitleH4 theme={theme}>Date :</ProjectDescriptionTitleH4>
+                    <ProjectDescriptionText theme={theme}>{project.date}</ProjectDescriptionText>
+                  </ProjetDate>
+                  <ProjectRole>
+                    <ProjectDescriptionTitleH4 theme={theme}>Role :</ProjectDescriptionTitleH4>
+                    <ProjectDescriptionText theme={theme}>{project.role}</ProjectDescriptionText>
+                  </ProjectRole>
+                  <ProjectTech>
+                    <ProjectDescriptionTitleH4 theme={theme}>Technologies :</ProjectDescriptionTitleH4>
+                    <ProjectDescriptionText theme={theme}>{project.tech}</ProjectDescriptionText>
+                  </ProjectTech>
+                  
+                </ProjectContainerData>
+                <ButtonSection>
+                  {project.link === '' ? null : <Button buttonBg="rgba(0, 0, 255, 0.5)" buttonTextColor="#FFFFFF" href={project.link} theme={theme} target="_blank" rel="noreferrer" text='Voir le projet'></Button>}
+                  {project.linkGithub === '' ? null : <Button buttonBg="rgba(0, 0, 255, 0.5)" buttonTextColor="#FFFFFF" href={project.linkGithub} theme={theme} target="_blank" rel="noreferrer" text='Voir le code'></Button>}
 
+                </ButtonSection>
 
-                <ProjetDate>
-                  <ProjectDescriptionTitleH4 theme={theme}>Date :</ProjectDescriptionTitleH4>
-                  <ProjectDescriptionText theme={theme}>{project.date}</ProjectDescriptionText>
-                </ProjetDate>
-                <ProjectRole>
-                  <ProjectDescriptionTitleH4 theme={theme}>Role :</ProjectDescriptionTitleH4>
-                  <ProjectDescriptionText theme={theme}>{project.role}</ProjectDescriptionText>
-                </ProjectRole>
-                <ProjectTech>
-                  <ProjectDescriptionTitleH4 theme={theme}>Technologies :</ProjectDescriptionTitleH4>
-                  <ProjectDescriptionText theme={theme}>{project.tech}</ProjectDescriptionText>
-                </ProjectTech>
-
-
+                
               </ProjectDescription>
 
 
@@ -238,7 +292,7 @@ const ProjectPage = () => {
 					</ProjectImageLink>
 				))}
 			</ProjectContainer>
-			<Divider />
+
 			<NextProjectPreview to={`/project/${projectsData[nextProjectIndex].id}`}>
 				<NextProjectImage src={projectsData[nextProjectIndex].image} alt={projectsData[nextProjectIndex].title} />
 				<NextProjectTitle>{projectsData[nextProjectIndex].title}</NextProjectTitle>
