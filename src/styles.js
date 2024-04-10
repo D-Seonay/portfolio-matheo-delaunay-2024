@@ -91,16 +91,19 @@ export const NavbarStyle = styled.nav`
 `;
 
 export const Link = styled.a`
-  	color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
-	  margin-right: 1rem;
-  text-decoration: none;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+mix-blend-mode: difference; /* Applique le mode de mélange difference */
+color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
+margin-right: 1rem;
+text-decoration: none;
+transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 
-  &:hover {
-	color: rgba(145, 148, 185, 0.90);
-  }
+&:hover {
+  mix-blend-mode: difference; /* Peut être répété ici pour plus de clarté */
+  color: rgba(145, 148, 185, 0.90); /* Changement de couleur au survol */
+}
 `;
 
+  
 
 export const Icons = styled.span`
   display: flex;

@@ -19,51 +19,51 @@ const ProjectItem = styled.div`
   position: relative;
 `;
 
-const ProjectImageLink = styled(Link)`
+const ProjectImageLink = styled.div`
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
-  position: relative;
+
 `;
 
 const ProjectImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 80%;
   object-fit: cover;
+  border-radius: 10px;
   z-index: -1;
   filter: brightness(0.5);
 `;
 
-const ProjectDescription = styled.div
-	`
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      position: absolute;
-      top: 10vw;
-      right: 10vw;
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      width: 30vw;
-      z-index: 1;
-      backdrop-filter: blur(10px);
+const ProjectDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: 90vw;
+  z-index: 1;
+  backdrop-filter: blur(10px);
 
-      @media (max-width: 768px) {
-        width: 100vw;
-        align-items: center;
-        justify-content: center;
-        text-align: start;
-        right: 0;
-        top: 0;
-        padding: 1rem;
-        height: 100vh;
-        border-radius: 0;
-        background-color: rgba(0, 0, 0, 0.3);
-      }
-	`;
+  @media (max-width: 768px) {
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+    height: 100vh;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+`;
 
 const ProjectTitle = styled.h2`
-  color: #fff;
+  color : ${props => (props.theme === 'dark' ? '#fff' : '#000')};
   font-size: 5rem;
 
   @media (max-width: 768px) {
@@ -89,7 +89,6 @@ const ProjectDescriptionText = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.8rem;
-
   }
 `;
 
@@ -147,17 +146,6 @@ const ProjectTech = styled.div`
   }
 `;
 
-const NextProjectLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-top: 10px;
-  }
-`;
-
 const NextProjectPreview = styled(Link)`
   width: 100vw; // Ajustez la taille selon vos besoins
   height: 100vh; // Ajustez la taille selon vos besoins
@@ -186,6 +174,19 @@ const NextProjectDescription = styled.p`
   font-size: 1rem;
 `;
 
+
+const buttonLinkGithub = styled(Link)`
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  
+  &:hover {
+    color: #6c757d;
+    transition: 0.3s;
+    text-decoration: inherit;
+  }
+`;
+
 const ProjectPage = () => {
 	const { id } = useParams(); // Récupérer l'ID de l'URL
 	const filteredProjects = projectsData.filter(project => project.id === id); // Filtrer les projets par ID
@@ -204,26 +205,36 @@ const ProjectPage = () => {
 				{filteredProjects.map(project => (
 					<ProjectImageLink key={project.id} to={`/project/${project.id}`}>
 						<ProjectItem>
-							<ProjectImage src={project.image} alt={project.title} />
-							<ProjectDescription>
-								<ProjectTitle theme={theme}>{project.title}</ProjectTitle>
-								<ProjectDescriptionTitleH4 theme={theme}>{project.description}</ProjectDescriptionTitleH4>
-								<ProjectDescriptionLink theme={theme} href={project ? project.link : ''} target="_blank" rel="noreferrer"> Voir le projet</ProjectDescriptionLink>
+            <ProjectTitle theme={theme}>{project.title}</ProjectTitle>
+              <ProjectImageLink key={project.id} to={`/project/${project.id}`}>
+                <ProjectImage src={project.image} alt={project.title} />
+              </ProjectImageLink>
+              <ProjectDescription>
+                
+                <ProjectDescriptionTitleH4 theme={theme}>{project.description}</ProjectDescriptionTitleH4>
+                <ProjectDescriptionLink theme={theme} href={project ? project.link : ''} target="_blank" rel="noreferrer"> Voir le projet</ProjectDescriptionLink>
+                <buttonLinkGithub theme={theme} href={project ? project.linkGithub : ''} target="_blank" rel="noreferrer"> Voir le code source</buttonLinkGithub>
 
-								<ProjetDate>
-									<ProjectDescriptionTitleH4 theme={theme}>Date :</ProjectDescriptionTitleH4>
-									<ProjectDescriptionText theme={theme}>{project.date}</ProjectDescriptionText>
-								</ProjetDate>
-								<ProjectRole>
-									<ProjectDescriptionTitleH4 theme={theme}>Role :</ProjectDescriptionTitleH4>
-									<ProjectDescriptionText theme={theme}>{project.role}</ProjectDescriptionText>
-								</ProjectRole>
-								<ProjectTech>
-									<ProjectDescriptionTitleH4 theme={theme}>Technologies :</ProjectDescriptionTitleH4>
-									<ProjectDescriptionText theme={theme}>{project.tech}</ProjectDescriptionText>
-								</ProjectTech>
-							</ProjectDescription>
-						</ProjectItem>
+
+                <ProjetDate>
+                  <ProjectDescriptionTitleH4 theme={theme}>Date :</ProjectDescriptionTitleH4>
+                  <ProjectDescriptionText theme={theme}>{project.date}</ProjectDescriptionText>
+                </ProjetDate>
+                <ProjectRole>
+                  <ProjectDescriptionTitleH4 theme={theme}>Role :</ProjectDescriptionTitleH4>
+                  <ProjectDescriptionText theme={theme}>{project.role}</ProjectDescriptionText>
+                </ProjectRole>
+                <ProjectTech>
+                  <ProjectDescriptionTitleH4 theme={theme}>Technologies :</ProjectDescriptionTitleH4>
+                  <ProjectDescriptionText theme={theme}>{project.tech}</ProjectDescriptionText>
+                </ProjectTech>
+
+
+              </ProjectDescription>
+
+
+            </ProjectItem>
+
 					</ProjectImageLink>
 				))}
 			</ProjectContainer>
