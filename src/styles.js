@@ -63,6 +63,10 @@ export const Title = styled.h1`
   line-height: 1.2;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
 `;
 
 export const Button = styled.button`
@@ -102,6 +106,14 @@ transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   mix-blend-mode: difference; /* Peut être répété ici pour plus de clarté */
   color: rgba(145, 148, 185, 0.90); /* Changement de couleur au survol */
 }
+
+@media (max-width: 480px) {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 320px) {
+  font-size: 0.6rem;
+}
 `;
 
 
@@ -117,6 +129,10 @@ export const Icons = styled.span`
 
   &:hover {
     color: rgba(145, 148, 185, 0.90);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
   }
 `;
 

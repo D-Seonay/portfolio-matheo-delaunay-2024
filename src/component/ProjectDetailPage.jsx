@@ -98,6 +98,7 @@ const ProjectTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 3rem;
+    margin-top: 5rem;
   }
 `;
 
@@ -210,6 +211,11 @@ const NextProjectTitle = styled.h2`
   color: #fff;
   font-size: 5rem;
   position: absolute;
+
+  @media (max-width: 768px) {
+
+    font-size: 3rem;
+    text-align: center;
 `;
 
 const NextProjectDescription = styled.p`
