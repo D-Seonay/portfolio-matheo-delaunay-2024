@@ -45,6 +45,18 @@ const BubblyButtonLink = styled.a`
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
     box-shadow: 0 2px 25px rgba(0, 0, 255, 0.2);
 
+    @media (max-width: 768px) {
+        display: flex;
+        margin-top: 1rem;
+        height: 4rem;
+        width: 15rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        
+        }
+
     &:hover {
         transform: scale(1.1);
         box-shadow: 0 2px 25px rgba(0, 0, 255, 0.7);
