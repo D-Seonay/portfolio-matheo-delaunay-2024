@@ -176,7 +176,7 @@ const AboutMe = () => {
 				<SectionTextButton>
 
 					<Text theme={theme}>
-						I ' Mathéo DELAUNAY, a computer engineering student at EPSI Nantes. Passionate about programming and computing in general, I ' ve acquired skills in HTML, CSS, PHP, MySQL and Adobe suites. I also enjoy mountain sports and video games. Check out my portfolio to find out more about my skills and achievements.
+          Je m'appelle Mathéo DELAUNAY et je suis étudiant en développement full stack à l'EPSI Nantes. Je suis passionné par la programmation et les technologies informatiques, avec des compétences en React, Symfony et Node. En dehors de mes études, j'ai un intérêt pour la musculation et le billard, et je suis également le président du BDE (WIPS) de mon école. N'hésitez pas à explorer mon portfolio pour découvrir mes réalisations et compétences.
 					</Text>
 					<DownloadButton theme={theme} />
 				</SectionTextButton>
