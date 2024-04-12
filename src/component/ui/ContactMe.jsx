@@ -92,9 +92,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
 
-  &:hover {
-    
-  }
+
 
   @media (max-width: 768px) {
     font-size: 3rem;

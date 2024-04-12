@@ -95,7 +95,7 @@ const SectionTextButton = styled.div`
   
   @media (max-width: 768px) {
     margin-right: 0;
-	margin-top: 2rem;
+	margin-top: 5rem;
     
   }
 
@@ -127,10 +127,9 @@ const HeroImage = styled.img`
 	  margin-left: 2rem;
 	  transition: 0.3s;
 	  
-	  @media (max-width: 1192px) {
-	  		width: 80vw;
+	  @media (max-width: 1192px) {  
 	  		margin-left: 0;
-	  		margin-top: 2rem;
+	  		margin-bottom: 2rem;
 	  }
 `;
 
