@@ -9,24 +9,22 @@ const projectsData = [
 		description: 'Une application web pour parcourir et partager des photos de chatons.',
 		role: 'Développeur frontend',
 		categorie: 'School',
-		tech: 'React, Firebase',
+		tech: 'Symfony, MySQL',
 		image: Phototheque,
 		link: '',
 		linkGithub: 'https://github.com/D-Seonay/chatons-bdd',
-		// Autres détails du projet
 	},
 	{
 		id: '2',
 		title: 'Card Flip Revise',
 		date: 'Mars 2023',
-		description: 'Un jeu de cartes pour réviser les concepts clés.',
-		role: 'Concepteur UI/UX',
+		description: 'Un jeu de cartes pour réviser les définitions des cours de droit.',
+		role: 'Développeur frontend',
 		categorie: 'Personal',
 		tech: 'Node.js',
 		image: CardFlipRevise,
 		link: '',
 		linkGithub: '',
-		// Autres détails du projet
 	},
 
 	{
@@ -47,7 +45,7 @@ const projectsData = [
 		title: 'Gestionnaire de Bibliothèque',
 		date: 'Juillet 2023',
 		description: 'Une application pour gérer les livres et les emprunts dans une bibliothèque.',
-		role: 'Développeur fullstack',
+		role: 'Développeur backend',
 		categorie: 'School',
 		tech: 'Python',
 		image: GestionnaireDeBibliotheque,
