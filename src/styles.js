@@ -347,18 +347,6 @@ export const EmblaSlideLink = styled.a`
   transition: color 0.3s ease-in-out;
 `;
 
-export const ScrollText = styled.p`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
-  font-size: 0.5rem;
-  margin-bottom: 5rem;
-  opacity: 1;
-    transition: opacity 1s ease;
-`;
-
 
 export const ProgressBar = styled.div`
   position: fixed;

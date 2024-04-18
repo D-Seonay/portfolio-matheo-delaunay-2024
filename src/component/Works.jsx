@@ -1,9 +1,11 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useTheme } from "./ThemeContext";
-import { EmblaMain, Embla, EmblaContainer, ScrollText, ProgressBar } from '../styles';
+import { EmblaMain, Embla, EmblaContainer, ProgressBar } from '../styles';
 import EmblaSlides from './EmblaCarousel';
 import { slidesData } from './slidesData';
+import ScrollText from './ui/ScrollText';
+
 
 function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
