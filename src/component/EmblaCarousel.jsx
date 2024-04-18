@@ -74,7 +74,7 @@ function EmblaSlides({ slides, emblaApi }) {
 	return (
 		<>
 			{slides.map((slide, index) => (
-				<EmblaSlide key={index}>
+				<EmblaSlide href={slide.link} key={index}>
 					<EmblaSlideImage src={slide.img} alt={slide.title} />
 					<EmblaContent>
 						<EmblaSlideTitle>{slide.title}</EmblaSlideTitle>

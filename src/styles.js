@@ -281,7 +281,9 @@ export const EmblaContainer = styled.div`
   height: 100%;
 `;
 
-export const EmblaSlide = styled.div`
+export const EmblaSlide = styled.a`
+  color: #fff;
+  text-decoration: none;
   flex: 0 0 100%;
   box-sizing: border-box;
   border-radius: 0.5rem;

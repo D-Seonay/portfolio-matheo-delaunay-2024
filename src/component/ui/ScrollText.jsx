@@ -8,6 +8,7 @@ const ScrollContainer = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: -1;
 
     animation: bounce 1s infinite alternate;
     @keyframes bounce {
@@ -31,6 +32,7 @@ const ScrollText = styled.p`
     margin-bottom: 5rem;
     opacity: 1;
     transition: opacity 1s ease;
+    z-index: -1;
     
 `;
 
