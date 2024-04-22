@@ -56,17 +56,19 @@ export const Aura = styled.div`
 export const Title = styled.h1`
   font-family: 'Gallery', sans-serif;
   mix-blend-mode: difference;
-  color: ${props => props.theme === 'light' ? '#191919' : '#DADADA'};
+  color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
+  opacity: 1;
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px; opacity: 1;
   font-size: 2.5rem;
   margin-bottom: 1rem;	
   font-weight: 500;
   line-height: 1.2;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  z-index: 10;
 
   @media (max-width: 768px) {
     font-size: 2rem;
   }
-
 `;
 
 export const Button = styled.button`
@@ -86,6 +88,9 @@ export const Button = styled.button`
 export const NavbarStyle = styled.nav`
   font-family: 'Poppins', sans-serif;
   display: flex;
+  mix-blend-mode: difference;
+  blend-mode: difference;
+  color: ${props => props.theme === 'light' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
