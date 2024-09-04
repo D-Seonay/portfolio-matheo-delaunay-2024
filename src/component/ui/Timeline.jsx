@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useTheme } from "../ThemeContext";
 import { Element } from 'react-scroll';
 import logoEPSI from "../../img/logo-timeline/LOGO_EPSI.png";
@@ -75,14 +75,27 @@ const TimelineDot = styled.div`
 `;
 
 const TimelineContent = styled.div`
-  margin-${props => (props.isOdd ? 'right' : 'left')}: 20px;
+  /* Marge conditionnelle */
+  ${props => css`
+    margin-${props.isOdd ? 'right' : 'left'}: 20px;
+  `}
+
   padding: 20px;
   min-width: 30vw;
   max-width: 35vw;
   border-radius: 10px;
+  
+  /* Couleur de fond conditionnelle basée sur le thème */
   background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#404040')};
+
+  /* Effet granuleux avec gradients radiaux */
+  background: radial-gradient(circle, rgba(31, 38, 135, 0.37) 10%, rgba(255, 0, 0, 0) 1%),
+              radial-gradient(circle, rgba(0, 0, 0, 0.5) 1%, rgba(255, 0, 0, 0) 1%);
+  background-size: 5px 5px, 5px 5px;
+  background-position: 0 0, 2.5px 2.5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
+  /* Réactivité pour différentes tailles d'écran */
   @media (max-width: 1024px) {
     min-width: 65vw;
     margin: 20px 0;
