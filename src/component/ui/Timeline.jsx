@@ -297,10 +297,10 @@ const MyTimeline = () => {
 										<LogoContainer>
 											{event.link ? (
 												<LinkA href={event.link} target="_blank" rel="noopener noreferrer">
-													<LogoImage src={event.logo} alt={event.title} />
+													<LogoImage src={event.logo} alt={event.titre} />
 												</LinkA>
 											) : (
-												<LogoImage src={event.logo} alt={event.title} />
+												<LogoImage src={event.logo} alt={event.titre} />
 											)}
 										</LogoContainer>
 
