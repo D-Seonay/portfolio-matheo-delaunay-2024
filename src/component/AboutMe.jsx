@@ -104,7 +104,7 @@ const Text = styled.span`
   font-size: 1.5rem;
   color: ${props => (props.theme === 'light' ? '#000' : '#fff')};
   margin-right: 2rem;
-  text-align: justify;
+  text-align: initial;
   max-width: 50vw;
   
   @media (max-width: 1192px) {
