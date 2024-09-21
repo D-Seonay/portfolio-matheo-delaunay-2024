@@ -92,6 +92,7 @@ const TimelineContent = styled.div`
   background: radial-gradient(circle, rgba(31, 38, 135, 0.37) 10%, rgba(255, 0, 0, 0) 1%),
               radial-gradient(circle, rgba(0, 0, 0, 0.5) 1%, rgba(255, 0, 0, 0) 1%);
   background-size: 5px 5px, 5px 5px;
+  background-color: ${props => (props.theme === 'light' ? '#DADADA' : '#404040')};
   background-position: 0 0, 2.5px 2.5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
