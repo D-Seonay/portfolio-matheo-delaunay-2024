@@ -11,7 +11,7 @@ import {useTheme} from "../ThemeContext"; // Importez votre image ici
 
 const ParallaxHero = styled.div`
   position: relative;
-	  height: 40vh;
+	  height: 80vh;
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -23,7 +23,7 @@ const ParallaxHero = styled.div`
   
   @media (max-width: 768px) {
     font-size: 2rem;
-    height: 20vh;
+    height: 40vh;
   }
 `;
 
@@ -32,7 +32,7 @@ const ParallaxComponent = () => {
 	return (
 		<ParallaxProvider>
 			<ParallaxHero>
-				<ParallaxBanner layers={[{ image: Image, amount: 0.5, speed: -10 }]} style={{ height: '100%', filter: theme === 'light' ? "none"  : 'invert(0.6)' }}>
+				<ParallaxBanner layers={[{ image: Image, amount: 0.05, speed: 100 }]} style={{ height: '100%', filter: theme === 'light' ? "none"  : 'invert(0.6)' }}>
 				</ParallaxBanner>
 			</ParallaxHero>
 		</ParallaxProvider>
