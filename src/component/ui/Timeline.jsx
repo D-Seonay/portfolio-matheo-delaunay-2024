@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { useTheme } from "../ThemeContext";
 import { Element } from 'react-scroll';
 import logoEPSI from "../../img/logo-timeline/LOGO_EPSI.png";
+import LogoBackcar from "../../img/logo-timeline/LOGO_BACKCAR.png";
 import logoLaMennais from "../../img/logo-timeline/LOGO_LaMennais.png";
 import logoStFelix from "../../img/logo-timeline/LOGO_StFelix.png";
 import LogoNoBullShitTech from "../../img/logo-timeline/LOGO_NoBullShitTech.svg";
@@ -200,6 +201,15 @@ const Divider = styled.hr`
 const MyTimeline = () => {
 	const [visibleSections, setVisibleSections] = useState([]);
 	const events = [
+
+    {
+      titre: 'Alternance chez Backcar en tant que Développeur Fullstack',
+      date: 'Novembre 2024 - Janvier 2025',
+      description: "Développement web, design, gestion de projet, DevOps.",
+      logo: LogoBackcar,
+      lien: '',
+      rapport:"",
+    },
 		{
       titre: 'Stage chez DCH-IT en tant que Développeur 360°',
       date: 'Janvier 2024 - Février 2024',

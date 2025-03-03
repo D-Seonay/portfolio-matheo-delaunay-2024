@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import SkillItem from './SkillItem';
 import { MdBrush} from 'react-icons/md';
-import { FaHtml5, FaCss3Alt, FaReact, FaVuejs, FaNode,FaPhp, FaSymfony, FaFigma, FaGitAlt, FaApple, FaLinux, FaDocker } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaVuejs, FaNode,FaPhp, FaSymfony, FaFigma, FaGitAlt, FaApple, FaLinux, FaDocker, FaAngular, FaJava } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
+
 import { IoLogoJavascript, IoTerminal } from "react-icons/io5";
 import { DiMysql } from "react-icons/di";
 import { SiAdobe } from "react-icons/si";
@@ -15,7 +17,8 @@ const skillsData = {
 		{ name: 'CSS', icon: FaCss3Alt },
 		{ name: 'JavaScript', icon: IoLogoJavascript },
 		{ name: 'React', icon: FaReact },
-		{ name: 'Vue.js', icon: FaVuejs }
+		{ name: 'Vue.js', icon: FaVuejs },
+		{ name: 'Angular', icon: FaAngular },
 
 	],
 	Backend: [
@@ -23,6 +26,8 @@ const skillsData = {
 		{ name: 'Php', icon: FaPhp },
 		{ name: 'Symfony', icon: FaSymfony },
 		{ name: 'MySQL', icon: DiMysql },
+		{ name: 'Java', icon: FaJava },
+		{ name: 'Next.js', icon: RiNextjsFill }
 	],
 	Creative: [
 		{ name: 'UI/UX Design', icon: MdBrush },

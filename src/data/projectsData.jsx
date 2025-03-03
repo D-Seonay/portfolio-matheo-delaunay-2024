@@ -1,4 +1,4 @@
-import { Phototheque, CardFlipRevise, Pokedex, GestionnaireDeBibliotheque } from '../Images';
+import { Phototheque, CardFlipRevise, Pokedex, GestionnaireDeBibliotheque, FoodCollect, PokeGuess } from '../Images';
 
 
 const projectsData = [
@@ -36,7 +36,7 @@ const projectsData = [
 		categorie: 'Personal',
 		tech: 'Node.js, PokeAPI',
 		image: Pokedex,
-		link: 'https://chatonsphototheque-q26cn.ondigitalocean.app/',
+		link: '',
 		linkGithub: 'https://github.com/D-Seonay/pokedex',
 		// Autres détails du projet
 	},
@@ -52,6 +52,30 @@ const projectsData = [
 		link: '',
 		linkGithub: 'https://github.com/D-Seonay/gestionnaire-de-bibliotheque',
 		// Autres détails du projet
+	},
+	{
+		id: '5',
+		title: 'Refonte du site de Food Collect (Fictif)',
+		date: 'Octobre 2024',
+		description: "Un projet de refonte du site de l\'entreprise Food Collect.",
+		role: 'Développeur frontend',
+		categorie: 'Personal',
+		tech: 'React',
+		image: FoodCollect,
+		link: 'https://food-collect-refactor.vercel.app/',
+		linkGithub: 'https://github.com/D-Seonay/food-collect-refactor',
+	},
+	{
+		id: '6',
+		title: 'Pokemon Guessing Game',
+		date: 'Septembre 2024',
+		description: 'Un jeu pour deviner le nom des Pokémon à partir de leur image.',
+		role: 'Développeur frontend',
+		categorie: 'Personal',
+		tech: 'React, PokeAPI',
+		image: PokeGuess,
+		link: '',
+		linkGithub: 'https://github.com/D-Seonay/poke-guessing-game',
 	}
 	// Ajoutez d'autres projets ici
 ];

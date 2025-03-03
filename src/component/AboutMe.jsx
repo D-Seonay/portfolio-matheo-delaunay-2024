@@ -175,8 +175,7 @@ const AboutMe = () => {
 				<SectionTextButton>
 
 					<Text theme={theme}>
-          Je m'appelle Mathéo DELAUNAY et je suis étudiant en développement full stack à l'EPSI Nantes. Je suis passionné par la programmation et les technologies informatiques, avec des compétences en React, Symfony et Node. En dehors de mes études, j'ai un intérêt pour la musculation et le billard, et je suis également le président du BDE (WIPS) de mon école. N'hésitez pas à explorer mon portfolio pour découvrir mes réalisations et compétences.
-					</Text>
+          Je m'appelle Mathéo DELAUNAY et je suis actuellement étudiant en développement full stack à l'EPSI Nantes. Passionné par la programmation et les nouvelles technologies, j'ai acquis des compétences solides en React, Symfony et Node. En parallèle de mes études, je pratique la musculation et le billard. Je suis également président du BDE (WIPS) de mon école, où j'organise des événements pour la communauté étudiante. N'hésitez pas à explorer mon portfolio pour découvrir mes projets et mes compétences.					</Text>
 					<DownloadButton theme={theme} />
 				</SectionTextButton>
 
